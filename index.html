@@ -36,67 +36,92 @@
 
             <!-- Accesorios -->
             <div class="galeria" data-categoria="accesorios" style="display: none;">
-                <!-- Plantillas de productos -->
-                <div class="producto"><img src="assets/Pulsera letra.jpg" alt="Ref:10001"><p>Pulsera con inicial - $25.000</p></div>
-                <div class="producto"><img src="assets/accesorio2.jpg" alt="Ref:10002"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/accesorio3.jpg" alt="Ref:10003"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/accesorio4.jpg" alt="Ref:10004"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/accesorio5.jpg" alt="Ref:10005"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/accesorio6.jpg" alt="Ref:10006"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/accesorio7.jpg" alt="Ref:10007"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/accesorio8.jpg" alt="Ref:10008"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/accesorio9.jpg" alt="Ref:10009"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/accesorio10.jpg" alt="Ref:10010"><p>Nombre del producto - $00.000</p></div>
+                <!-- Plantillas -->
+                <!-- Reemplaza las imágenes y textos -->
+                " + Array.from({length: 10}).map((_, i) => `
+                <div class="producto">
+                    <img src="assets/accesorio${i + 1}.jpg" alt="Producto Accesorio ${i + 1}">
+                    <p>Descripción del producto - $Precio</p>
+                </div>`).join("") + "
             </div>
 
             <!-- Detalles con Chocolate -->
             <div class="galeria" data-categoria="detalles" style="display: none;">
-                <!-- Contenido previamente agregado -->
+                <div class="producto">
+                    <img src="assets/1.jpg" alt="Ref:19171">
+                    <p>Con tarjeta personalizada - $65.000</p>
+                </div>
+                <div class="producto">
+                    <img src="assets/10.jpg" alt="Ref:19172">
+                    <p>Mensaje personalizado - $35.000</p>
+                </div>
+                <div class="producto">
+                    <img src="assets/100.jpg" alt="Ref:19173">
+                    <p>Caja con chocoreo + tarjeta personalizada - $37.000</p>
+                </div>
+                <div class="producto">
+                    <img src="assets/101.jpg" alt="Ref:19174">
+                    <p>Con tarjeta personalizada - $46.000</p>
+                </div>
+                <div class="producto">
+                    <img src="assets/11.jpg" alt="Ref:19175">
+                    <p>Con tarjeta personalizada - $38.000</p>
+                </div>
+                <div class="producto">
+                    <img src="assets/12.jpg" alt="Ref:19176">
+                    <p>Chocoreo + ferrero - $46.000</p>
+                </div>
+                <div class="producto">
+                    <img src="assets/InShot_20250206_200421855.jpg" alt="Ref:19177">
+                    <p>Fresas con chocolate + chocoreo - $47.000</p>
+                </div>
+                <div class="producto">
+                    <img src="assets/14.jpg" alt="Ref:19178">
+                    <p>Fresas con chocolate + cerveza corona - $130.000</p>
+                </div>
+                <div class="producto">
+                    <img src="assets/15.jpg" alt="Ref:19179">
+                    <p>Vaso con fresas - $56.000</p>
+                </div>
+                <div class="producto">
+                    <img src="assets/16.jpg" alt="Ref:19180">
+                    <p>Con globo y tarjeta personalizada - $190.000</p>
+                </div>
+                <div class="producto">
+                    <img src="assets/17.jpg" alt="Ref:19181">
+                    <p>Fruta + fresas + cerveza corona - $110.000</p>
+                </div>
+                <div class="producto">
+                    <img src="assets/18.jpg" alt="Ref:19182">
+                    <p>Cerveza + ferrero + fresas - $70.000</p>
+                </div>
             </div>
 
             <!-- Ramos Bouquet -->
             <div class="galeria" data-categoria="ramos" style="display: none;">
-                <!-- Plantillas de productos -->
-                <div class="producto"><img src="assets/ramos1.jpg" alt="Ref:20001"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/ramos2.jpg" alt="Ref:20002"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/ramos3.jpg" alt="Ref:20003"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/ramos4.jpg" alt="Ref:20004"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/ramos5.jpg" alt="Ref:20005"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/ramos6.jpg" alt="Ref:20006"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/ramos7.jpg" alt="Ref:20007"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/ramos8.jpg" alt="Ref:20008"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/ramos9.jpg" alt="Ref:20009"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/ramos10.jpg" alt="Ref:20010"><p>Nombre del producto - $00.000</p></div>
+                " + Array.from({length: 10}).map((_, i) => `
+                <div class="producto">
+                    <img src="assets/ramos${i + 1}.jpg" alt="Ramo ${i + 1}">
+                    <p>Descripción del ramo - $Precio</p>
+                </div>`).join("") + "
             </div>
 
             <!-- Cuadros Personalizados -->
             <div class="galeria" data-categoria="cuadros" style="display: none;">
-                <!-- Plantillas de productos -->
-                <div class="producto"><img src="assets/cuadro1.jpg" alt="Ref:30001"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/cuadro2.jpg" alt="Ref:30002"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/cuadro3.jpg" alt="Ref:30003"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/cuadro4.jpg" alt="Ref:30004"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/cuadro5.jpg" alt="Ref:30005"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/cuadro6.jpg" alt="Ref:30006"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/cuadro7.jpg" alt="Ref:30007"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/cuadro8.jpg" alt="Ref:30008"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/cuadro9.jpg" alt="Ref:30009"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/cuadro10.jpg" alt="Ref:30010"><p>Nombre del producto - $00.000</p></div>
+                " + Array.from({length: 10}).map((_, i) => `
+                <div class="producto">
+                    <img src="assets/cuadro${i + 1}.jpg" alt="Cuadro ${i + 1}">
+                    <p>Descripción del cuadro - $Precio</p>
+                </div>`).join("") + "
             </div>
 
             <!-- Juguetes para Adultos -->
             <div class="galeria" data-categoria="juguetes" style="display: none;">
-                <!-- Plantillas de productos -->
-                <div class="producto"><img src="assets/juguete1.jpg" alt="Ref:40001"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/juguete2.jpg" alt="Ref:40002"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/juguete3.jpg" alt="Ref:40003"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/juguete4.jpg" alt="Ref:40004"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/juguete5.jpg" alt="Ref:40005"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/juguete6.jpg" alt="Ref:40006"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/juguete7.jpg" alt="Ref:40007"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/juguete8.jpg" alt="Ref:40008"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/juguete9.jpg" alt="Ref:40009"><p>Nombre del producto - $00.000</p></div>
-                <div class="producto"><img src="assets/juguete10.jpg" alt="Ref:40010"><p>Nombre del producto - $00.000</p></div>
+                " + Array.from({length: 10}).map((_, i) => `
+                <div class="producto">
+                    <img src="assets/juguete${i + 1}.jpg" alt="Juguete ${i + 1}">
+                    <p>Descripción del producto - $Precio</p>
+                </div>`).join("") + "
             </div>
         </div>
     </section>
@@ -128,3 +153,4 @@
     </script>
 </body>
 </html>
+
