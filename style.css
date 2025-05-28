@@ -50,6 +50,40 @@ nav a {
     padding: 0 20px;
 }
 
+/* ✅ NUEVO: Botones de categorías */
+.categorias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.categoria-btn {
+    background-color: gold;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.categoria-btn:hover {
+    background-color: #d4af37;
+}
+
+/* ✅ NUEVO: Ocultar productos por defecto */
+.productos {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.productos.activa {
+    display: block;
+}
+
 /* ✅ Galería en cuadrícula */
 .galeria {
     display: grid;
@@ -100,4 +134,16 @@ nav a {
     border-radius: 50%;
     text-decoration: none;
     z-index: 1000;
+}
+
+/* ✅ Animación suave */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
