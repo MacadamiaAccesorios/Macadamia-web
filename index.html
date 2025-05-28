@@ -1,117 +1,53 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Macadamia Accesorios</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <img src="assets/logo.jpeg" alt="Macadamia Logo" class="logo">
-        <nav>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#catalogo">Catálogos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+<section id="catalogo" class="catalogo">
+    <div class="contenedor">
+        <h2>Catálogo</h2>
 
-    <section id="inicio" class="hero">
-        <h1>Bienvenidos a Macadamia Accesorios</h1>
-        <p>Joyas y accesorios que brillan contigo.</p>
-    </section>
+        <!-- 🔘 Botones de categoría -->
+        <div class="categorias">
+            <button onclick="mostrarCategoria('accesorios')">Accesorios</button>
+            <button onclick="mostrarCategoria('chocolate')">Detalles con chocolate</button>
+            <button onclick="mostrarCategoria('bouquet')">Ramos bouquet</button>
+            <button onclick="mostrarCategoria('cuadros')">Cuadros personalizados</button>
+        </div>
 
-    <section id="catalogo" class="catalogo">
-        <div class="contenedor">
-            <h2>Catálogo</h2>
+        <!-- 🔽 Contenedor de productos (ocultos inicialmente) -->
 
-            <!-- 🟡 Categoría: Accesorios -->
+        <!-- Accesorios -->
+        <div id="accesorios" class="galeria-categoria oculto">
             <h3>Accesorios</h3>
             <div class="galeria">
-                <!-- Aquí puedes añadir productos de esta categoría -->
+                <!-- Agrega tus productos aquí -->
             </div>
+        </div>
 
-            <!-- 🟡 Categoría: Detalles con chocolate -->
+        <!-- Detalles con chocolate -->
+        <div id="chocolate" class="galeria-categoria oculto">
             <h3>Detalles con chocolate</h3>
             <div class="galeria">
+                <!-- (Aquí copias los productos actuales) -->
                 <div class="producto">
                     <img src="assets/1.jpg" alt="Ref:19171">
                     <p>Con tarjeta personalizada - $65.000</p>
                 </div>
-                <div class="producto">
-                    <img src="assets/10.jpg" alt="Ref:19172">
-                    <p>Mensaje personalizado - $35.000</p>
-                </div>
-                <div class="producto">
-                    <img src="assets/100.jpg" alt="Ref:19173">
-                    <p>Caja con chocoreo + tarjeta personalizada - $37.000</p>
-                </div>
-                <div class="producto">
-                    <img src="assets/101.jpg" alt="Ref:19174">
-                    <p>Con tarjeta personalizada - $46.000</p>
-                </div>
-            </div>
-
-            <div class="galeria">
-                <div class="producto">
-                    <img src="assets/11.jpg" alt="Ref:19175">
-                    <p>Con tarjeta personalizada - $38.000</p>
-                </div>
-                <div class="producto">
-                    <img src="assets/12.jpg" alt="Ref:19176">
-                    <p>Chocoreo + ferrero - $46.000</p>
-                </div>
-                <div class="producto">
-                    <img src="assets/InShot_20250206_200421855.jpg" alt="Ref:19177">
-                    <p>Fresas con chocolate + chocoreo - $47.000</p>
-                </div>
-                <div class="producto">
-                    <img src="assets/14.jpg" alt="Ref:19178">
-                    <p>Fresas con chocolate + cerveza corona - $130.000</p>
-                </div>
-            </div>
-
-            <div class="galeria">
-                <div class="producto">
-                    <img src="assets/15.jpg" alt="Ref:19179">
-                    <p>Vaso con fresas - $56.000</p>
-                </div>
-                <div class="producto">
-                    <img src="assets/16.jpg" alt="Ref:19180">
-                    <p>Con globo y tarjeta personalizada - $190.000</p>
-                </div>
-                <div class="producto">
-                    <img src="assets/17.jpg" alt="Ref:19181">
-                    <p>Fruta + fresas + cerveza corona - $110.000</p>
-                </div>
-                <div class="producto">
-                    <img src="assets/18.jpg" alt="Ref:19182">
-                    <p>Cerveza + ferrero + fresas - $70.000</p>
-                </div>
-            </div>
-
-            <!-- 🟡 Categoría: Ramos bouquet -->
-            <h3>Ramos bouquet</h3>
-            <div class="galeria">
-                <!-- Aquí puedes añadir productos de esta categoría -->
-            </div>
-
-            <!-- 🟡 Categoría: Cuadros personalizados -->
-            <h3>Cuadros personalizados</h3>
-            <div class="galeria">
-                <!-- Aquí puedes añadir productos de esta categoría -->
+                <!-- ... demás productos -->
             </div>
         </div>
-    </section>
 
-    <section id="contacto" class="contacto">
-        <h2>Contáctanos</h2>
-        <p>¡Escríbenos por WhatsApp para pedidos o dudas!</p>
-    </section>
+        <!-- Ramos bouquet -->
+        <div id="bouquet" class="galeria-categoria oculto">
+            <h3>Ramos bouquet</h3>
+            <div class="galeria">
+                <!-- Agrega tus productos aquí -->
+            </div>
+        </div>
 
-    <a href="https://wa.me/573174715623" class="whatsapp-button" target="_blank">💬</a>
-</body>
-</html>
+        <!-- Cuadros personalizados -->
+        <div id="cuadros" class="galeria-categoria oculto">
+            <h3>Cuadros personalizados</h3>
+            <div class="galeria">
+                <!-- Agrega tus productos aquí -->
+            </div>
+        </div>
+    </div>
+</section>
 
