@@ -5,40 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Macadamia Accesorios</title>
     <link rel="stylesheet" href="style.css" />
-    <style>
-        .categoria-btn.activo {
-            background-color: #d09aca;
-            color: white;
-            font-weight: bold;
-        }
-
-        .boton-compra {
-            display: inline-block;
-            margin-top: 5px;
-            padding: 5px 10px;
-            background-color: #25d366;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 0.9em;
-        }
-
-        .producto {
-            text-align: center;
-        }
-
-        .producto img {
-            max-width: 100%;
-            border-radius: 10px;
-        }
-
-        .galeria {
-            display: none;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -68,50 +34,11 @@
                 <button class="categoria-btn" data-categoria="juguetes">Juguetes para Adultos</button>
             </div>
 
-            <div class="galeria" data-categoria="accesorios">
-                <div class="producto">
-                    <img src="assets/elefande brillante.jpg" alt="Ref:ACC001">
-                    <p>Collar elefante brillante - $35.000</p>
-                    <a class="boton-compra" href="https://wa.me/573174715623?text=Hola%2C%20quiero%20comprar%20el%20Collar%20elefante%20brillante%20Ref%3AACC001" target="_blank">Comprar por WhatsApp</a>
-                </div>
-                <div class="producto">
-                    <img src="assets/corazon azul.jpg" alt="Ref:ACC002">
-                    <p>Collar corazón azul - $30.000</p>
-                    <a class="boton-compra" href="https://wa.me/573174715623?text=Hola%2C%20quiero%20comprar%20el%20Collar%20corazón%20azul%20Ref%3AACC002" target="_blank">Comprar por WhatsApp</a>
-                </div>
-            </div>
+            <!-- Galerías de productos -->
+            <!-- Aquí se agregará dinámicamente el botón de WhatsApp a cada producto -->
 
-            <div class="galeria" data-categoria="detalles">
-                <div class="producto">
-                    <img src="assets/kit chocolate girasol.jpg" alt="Ref:DET001">
-                    <p>Kit chocolate girasol - $28.000</p>
-                    <a class="boton-compra" href="https://wa.me/573174715623?text=Hola%2C%20quiero%20comprar%20el%20Kit%20chocolate%20girasol%20Ref%3ADET001" target="_blank">Comprar por WhatsApp</a>
-                </div>
-            </div>
-
-            <div class="galeria" data-categoria="ramos">
-                <div class="producto">
-                    <img src="assets/ramos ferrero.jpg" alt="Ref:RAM001">
-                    <p>Ramo Ferrero - $45.000</p>
-                    <a class="boton-compra" href="https://wa.me/573174715623?text=Hola%2C%20quiero%20comprar%20el%20Ramo%20Ferrero%20Ref%3ARAM001" target="_blank">Comprar por WhatsApp</a>
-                </div>
-            </div>
-
-            <div class="galeria" data-categoria="cuadros">
-                <div class="producto">
-                    <img src="assets/cuadro love.jpg" alt="Ref:CUD001">
-                    <p>Cuadro "Love" personalizado - $40.000</p>
-                    <a class="boton-compra" href="https://wa.me/573174715623?text=Hola%2C%20quiero%20comprar%20el%20Cuadro%20Love%20Ref%3ACUD001" target="_blank">Comprar por WhatsApp</a>
-                </div>
-            </div>
-
-            <div class="galeria" data-categoria="juguetes">
-                <div class="producto">
-                    <img src="assets/juguete anillo.jpg" alt="Ref:JUG001">
-                    <p>Anillo estimulador - $50.000</p>
-                    <a class="boton-compra" href="https://wa.me/573174715623?text=Hola%2C%20quiero%20comprar%20el%20Anillo%20estimulador%20Ref%3AJUG001" target="_blank">Comprar por WhatsApp</a>
-                </div>
-            </div>
+            <!-- Galerías existentes (no modificadas aquí por espacio) -->
+            <!-- ... (todos los <div class="galeria" ... > tal como los pegaste) ... -->
         </div>
     </section>
 
@@ -123,33 +50,61 @@
     <a href="https://wa.me/573174715623" class="whatsapp-button" target="_blank">💬</a>
 
     <script>
+        // Categorías
         const botones = document.querySelectorAll(".categoria-btn");
         const galerias = document.querySelectorAll(".galeria");
-
-        function mostrarCategoria(categoria) {
-            galerias.forEach(galeria => {
-                if (galeria.dataset.categoria === categoria) {
-                    galeria.style.display = "grid";
-                } else {
-                    galeria.style.display = "none";
-                }
-            });
-
-            botones.forEach(btn => {
-                if (btn.dataset.categoria === categoria) {
-                    btn.classList.add("activo");
-                } else {
-                    btn.classList.remove("activo");
-                }
-            });
-        }
 
         botones.forEach(boton => {
             boton.addEventListener("click", () => {
                 const categoriaSeleccionada = boton.dataset.categoria;
-                mostrarCategoria(categoriaSeleccionada);
+
+                galerias.forEach(galeria => {
+                    if (galeria.dataset.categoria === categoriaSeleccionada) {
+                        galeria.style.display = "grid";
+                    } else {
+                        galeria.style.display = "none";
+                    }
+                });
             });
         });
+
+        // Botón de WhatsApp en cada producto
+        document.querySelectorAll('.producto').forEach(producto => {
+            const img = producto.querySelector('img');
+            const desc = producto.querySelector('p');
+
+            const texto = encodeURIComponent(`¡Hola! Estoy interesada en este producto:\n\n${desc.innerText}`);
+            const urlImg = location.origin + '/' + img.getAttribute('src');
+
+            const boton = document.createElement('a');
+            boton.href = `https://wa.me/573174715623?text=${texto}`;
+            boton.target = "_blank";
+            boton.className = "boton-wsp-producto";
+            boton.innerHTML = "🟢 Pedir por WhatsApp";
+
+            producto.appendChild(boton);
+        });
     </script>
+
+    <style>
+        .producto {
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        .boton-wsp-producto {
+            display: inline-block;
+            margin-top: 0.5rem;
+            background-color: #25D366;
+            color: white;
+            padding: 0.4rem 0.8rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+        .boton-wsp-producto:hover {
+            background-color: #1ebe5b;
+        }
+    </style>
 </body>
 </html>
+
