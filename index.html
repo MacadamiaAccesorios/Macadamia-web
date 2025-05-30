@@ -68,31 +68,49 @@
                 <button class="categoria-btn" data-categoria="juguetes">Juguetes para Adultos</button>
             </div>
 
-            <!-- Galerías de productos -->
-            <!-- Cambia aquí los productos como lo has venido haciendo -->
             <div class="galeria" data-categoria="accesorios">
                 <div class="producto">
                     <img src="assets/elefande brillante.jpg" alt="Ref:ACC001">
                     <p>Collar elefante brillante - $35.000</p>
                     <a class="boton-compra" href="https://wa.me/573174715623?text=Hola%2C%20quiero%20comprar%20el%20Collar%20elefante%20brillante%20Ref%3AACC001" target="_blank">Comprar por WhatsApp</a>
                 </div>
-                <!-- Agrega los demás productos igual que este -->
+                <div class="producto">
+                    <img src="assets/corazon azul.jpg" alt="Ref:ACC002">
+                    <p>Collar corazón azul - $30.000</p>
+                    <a class="boton-compra" href="https://wa.me/573174715623?text=Hola%2C%20quiero%20comprar%20el%20Collar%20corazón%20azul%20Ref%3AACC002" target="_blank">Comprar por WhatsApp</a>
+                </div>
             </div>
 
             <div class="galeria" data-categoria="detalles">
-                <!-- Productos -->
+                <div class="producto">
+                    <img src="assets/kit chocolate girasol.jpg" alt="Ref:DET001">
+                    <p>Kit chocolate girasol - $28.000</p>
+                    <a class="boton-compra" href="https://wa.me/573174715623?text=Hola%2C%20quiero%20comprar%20el%20Kit%20chocolate%20girasol%20Ref%3ADET001" target="_blank">Comprar por WhatsApp</a>
+                </div>
             </div>
 
             <div class="galeria" data-categoria="ramos">
-                <!-- Productos -->
+                <div class="producto">
+                    <img src="assets/ramos ferrero.jpg" alt="Ref:RAM001">
+                    <p>Ramo Ferrero - $45.000</p>
+                    <a class="boton-compra" href="https://wa.me/573174715623?text=Hola%2C%20quiero%20comprar%20el%20Ramo%20Ferrero%20Ref%3ARAM001" target="_blank">Comprar por WhatsApp</a>
+                </div>
             </div>
 
             <div class="galeria" data-categoria="cuadros">
-                <!-- Productos -->
+                <div class="producto">
+                    <img src="assets/cuadro love.jpg" alt="Ref:CUD001">
+                    <p>Cuadro "Love" personalizado - $40.000</p>
+                    <a class="boton-compra" href="https://wa.me/573174715623?text=Hola%2C%20quiero%20comprar%20el%20Cuadro%20Love%20Ref%3ACUD001" target="_blank">Comprar por WhatsApp</a>
+                </div>
             </div>
 
             <div class="galeria" data-categoria="juguetes">
-                <!-- Productos -->
+                <div class="producto">
+                    <img src="assets/juguete anillo.jpg" alt="Ref:JUG001">
+                    <p>Anillo estimulador - $50.000</p>
+                    <a class="boton-compra" href="https://wa.me/573174715623?text=Hola%2C%20quiero%20comprar%20el%20Anillo%20estimulador%20Ref%3AJUG001" target="_blank">Comprar por WhatsApp</a>
+                </div>
             </div>
         </div>
     </section>
@@ -131,10 +149,6 @@
                 const categoriaSeleccionada = boton.dataset.categoria;
                 mostrarCategoria(categoriaSeleccionada);
             });
-        });
-
-        window.addEventListener("DOMContentLoaded", () => {
-            mostrarCategoria("accesorios");
         });
     </script>
 </body>
