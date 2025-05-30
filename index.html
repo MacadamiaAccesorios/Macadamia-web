@@ -6,19 +6,37 @@
     <title>Macadamia Accesorios</title>
     <link rel="stylesheet" href="style.css" />
     <style>
-        .producto button {
-            margin-top: 8px;
-            padding: 6px 12px;
-            background-color: #25D366;
+        .categoria-btn.activo {
+            background-color: #d09aca;
             color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.9em;
-            transition: background 0.3s ease;
+            font-weight: bold;
         }
-        .producto button:hover {
-            background-color: #1ebe5d;
+
+        .boton-compra {
+            display: inline-block;
+            margin-top: 5px;
+            padding: 5px 10px;
+            background-color: #25d366;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        .producto {
+            text-align: center;
+        }
+
+        .producto img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .galeria {
+            display: none;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -50,10 +68,32 @@
                 <button class="categoria-btn" data-categoria="juguetes">Juguetes para Adultos</button>
             </div>
 
-            <!-- Categorías y productos ya insertados (no repito por brevedad) -->
+            <!-- Galerías de productos -->
+            <!-- Cambia aquí los productos como lo has venido haciendo -->
+            <div class="galeria" data-categoria="accesorios">
+                <div class="producto">
+                    <img src="assets/elefande brillante.jpg" alt="Ref:ACC001">
+                    <p>Collar elefante brillante - $35.000</p>
+                    <a class="boton-compra" href="https://wa.me/573174715623?text=Hola%2C%20quiero%20comprar%20el%20Collar%20elefante%20brillante%20Ref%3AACC001" target="_blank">Comprar por WhatsApp</a>
+                </div>
+                <!-- Agrega los demás productos igual que este -->
+            </div>
 
-            <!-- Aquí continúan todas tus galerías sin cambios -->
+            <div class="galeria" data-categoria="detalles">
+                <!-- Productos -->
+            </div>
 
+            <div class="galeria" data-categoria="ramos">
+                <!-- Productos -->
+            </div>
+
+            <div class="galeria" data-categoria="cuadros">
+                <!-- Productos -->
+            </div>
+
+            <div class="galeria" data-categoria="juguetes">
+                <!-- Productos -->
+            </div>
         </div>
     </section>
 
@@ -65,33 +105,36 @@
     <a href="https://wa.me/573174715623" class="whatsapp-button" target="_blank">💬</a>
 
     <script>
-        // Mostrar/ocultar categorías
         const botones = document.querySelectorAll(".categoria-btn");
         const galerias = document.querySelectorAll(".galeria");
+
+        function mostrarCategoria(categoria) {
+            galerias.forEach(galeria => {
+                if (galeria.dataset.categoria === categoria) {
+                    galeria.style.display = "grid";
+                } else {
+                    galeria.style.display = "none";
+                }
+            });
+
+            botones.forEach(btn => {
+                if (btn.dataset.categoria === categoria) {
+                    btn.classList.add("activo");
+                } else {
+                    btn.classList.remove("activo");
+                }
+            });
+        }
 
         botones.forEach(boton => {
             boton.addEventListener("click", () => {
                 const categoriaSeleccionada = boton.dataset.categoria;
-                galerias.forEach(galeria => {
-                    galeria.style.display = (galeria.dataset.categoria === categoriaSeleccionada) ? "grid" : "none";
-                });
+                mostrarCategoria(categoriaSeleccionada);
             });
         });
 
-        // Agregar botón de compra a cada producto
-        const productos = document.querySelectorAll(".producto");
-        productos.forEach(producto => {
-            const ref = producto.querySelector("img").alt;
-            const desc = producto.querySelector("p").innerText;
-
-            const btn = document.createElement("button");
-            btn.textContent = "Comprar por WhatsApp";
-            btn.onclick = () => {
-                const mensaje = encodeURIComponent(`Hola, quiero más información sobre este producto:\n${ref} - ${desc}`);
-                window.open(`https://wa.me/573174715623?text=${mensaje}`, "_blank");
-            };
-
-            producto.appendChild(btn);
+        window.addEventListener("DOMContentLoaded", () => {
+            mostrarCategoria("accesorios");
         });
     </script>
 </body>
