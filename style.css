@@ -3,119 +3,73 @@ body {
     margin: 0;
     padding: 0;
 }
-
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1em;
-    background-color: #f9f9f9;
-    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
 }
-
 .logo {
     height: 60px;
 }
-
 nav ul {
     list-style: none;
     display: flex;
-    gap: 1em;
-    margin: 0;
-    padding: 0;
+    gap: 15px;
 }
-
-nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-}
-
 .hero {
     text-align: center;
-    padding: 2em;
-    background-color: #ffe8f0;
+    padding: 40px 20px;
+    background-color: #f8f8f8;
 }
-
-.catalogo .contenedor {
-    padding: 2em;
-}
-
-.categorias {
+.catalogo .categorias {
     display: flex;
+    gap: 10px;
     flex-wrap: wrap;
-    gap: 1em;
-    margin-bottom: 2em;
+    justify-content: center;
+    margin: 20px 0;
 }
-
 .categoria-btn {
-    padding: 0.5em 1em;
-    background-color: #f2c1d1;
+    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    background-color: #ff9a9e;
+    color: #fff;
     cursor: pointer;
-    font-weight: bold;
+    border-radius: 5px;
 }
-
 .galeria {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1em;
+    gap: 15px;
+    margin: 20px 0;
 }
-
 .producto {
-    background-color: #fff;
-    border: 1px solid #eee;
-    padding: 1em;
     text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
-
 .producto img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
+    width: 100%;
+    border-radius: 10px;
 }
-
-.producto p {
-    margin: 0.5em 0;
-}
-
-/* Botón de WhatsApp individual por producto */
-.whatsapp-producto {
+.btn-wsp {
     display: inline-block;
-    margin-top: 8px;
-    padding: 6px 12px;
-    background-color: #25D366;
-    color: white;
-    text-decoration: none;
+    margin-top: 5px;
+    padding: 8px 10px;
+    background-color: #25d366;
+    color: #fff;
     border-radius: 5px;
-    font-weight: bold;
+    text-decoration: none;
+    font-size: 14px;
 }
-.whatsapp-producto:hover {
-    background-color: #1ebe5b;
-}
-
-/* Botón flotante general de WhatsApp */
 .whatsapp-button {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #25D366;
+    font-size: 30px;
+    background-color: #25d366;
     color: white;
-    font-size: 1.5em;
-    padding: 0.6em 0.8em;
     border-radius: 50%;
+    padding: 10px 15px;
     text-decoration: none;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-}
-.whatsapp-button:hover {
-    background-color: #1ebe5b;
-}
-
-.contacto {
-    text-align: center;
-    padding: 2em;
-    background-color: #f7f7f7;
 }
