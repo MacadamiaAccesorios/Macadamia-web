@@ -21,6 +21,45 @@
   <section id="inicio" class="hero">
     <h1>Bienvenidos a Macadamia Accesorios</h1>
     <p>Joyas y detalles que brillan contigo.</p>
+
+    <div class="productos-azar">
+      <h2>Productos Destacados por Categoría</h2>
+
+      <div class="categoria-azar">
+        <h3>Accesorios</h3>
+        <div class="carrusel-azar" id="azar-accesorios">
+          <!-- Productos azar accesorios se insertarán aquí con JS -->
+        </div>
+      </div>
+
+      <div class="categoria-azar">
+        <h3>Detalles con Chocolate</h3>
+        <div class="carrusel-azar" id="azar-detalles">
+          <!-- Productos azar detalles se insertarán aquí con JS -->
+        </div>
+      </div>
+
+      <div class="categoria-azar">
+        <h3>Ramos Bouquet</h3>
+        <div class="carrusel-azar" id="azar-ramos">
+          <!-- Productos azar ramos se insertarán aquí con JS -->
+        </div>
+      </div>
+
+      <div class="categoria-azar">
+        <h3>Cuadros Personalizados</h3>
+        <div class="carrusel-azar" id="azar-cuadros">
+          <!-- Productos azar cuadros se insertarán aquí con JS -->
+        </div>
+      </div>
+
+      <div class="categoria-azar">
+        <h3>Juguetes para Adultos</h3>
+        <div class="carrusel-azar" id="azar-juguetes">
+          <!-- Productos azar juguetes se insertarán aquí con JS -->
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="catalogo" class="catalogo">
@@ -34,46 +73,86 @@
         <button class="categoria-btn" data-categoria="juguetes">Juguetes para Adultos</button>
       </div>
 
+      <!-- Galerías originales con productos y plantillas -->
       <div class="galeria" data-categoria="accesorios">
         <div class="producto">
-          <img src="assets/accesorio1.jpg" alt="Accesorio 1">
+          <img src="assets/accesorio1.jpg" alt="Collar corazón">
           <p>Collar corazón - $20.000</p>
           <button onclick="window.open('https://wa.me/573174715623?text=Hola!%20Quisiera%20comprar%20este%20producto:%20Collar%20corazón', '_blank')">Comprar</button>
         </div>
+        <!-- 10 plantillas genéricas -->
+        <div class="producto">
+          <img src="assets/plantilla.jpg" alt="Producto">
+          <p>Nombre del producto - $00.000</p>
+          <button onclick="window.open('https://wa.me/573174715623?text=Hola!%20Estoy%20interesada%20en%20este%20producto', '_blank')">Comprar</button>
+        </div>
+        <div class="producto">
+          <img src="assets/plantilla.jpg" alt="Producto">
+          <p>Nombre del producto - $00.000</p>
+          <button onclick="window.open('https://wa.me/573174715623?text=Hola!%20Estoy%20interesada%20en%20este%20producto', '_blank')">Comprar</button>
+        </div>
+        <!-- ... repite hasta 10 plantillas -->
       </div>
 
       <div class="galeria" data-categoria="detalles" style="display:none">
         <div class="producto">
-          <img src="assets/detalle1.jpg" alt="Detalle 1">
+          <img src="assets/detalle1.jpg" alt="Box chocolates y flores">
           <p>Box chocolates y flores - $35.000</p>
           <button onclick="window.open('https://wa.me/573174715623?text=Hola!%20Quisiera%20comprar%20este%20producto:%20Box%20chocolates%20y%20flores', '_blank')">Comprar</button>
         </div>
+        <!-- 10 plantillas genéricas -->
+        <div class="producto">
+          <img src="assets/plantilla.jpg" alt="Producto">
+          <p>Nombre del producto - $00.000</p>
+          <button onclick="window.open('https://wa.me/573174715623?text=Hola!%20Estoy%20interesada%20en%20este%20producto', '_blank')">Comprar</button>
+        </div>
+        <!-- ... repite hasta 10 plantillas -->
       </div>
 
       <div class="galeria" data-categoria="ramos" style="display:none">
         <div class="producto">
-          <img src="assets/ramo1.jpg" alt="Ramo 1">
+          <img src="assets/ramo1.jpg" alt="Ramo de flores">
           <p>Ramo de flores - $40.000</p>
           <button onclick="window.open('https://wa.me/573174715623?text=Hola!%20Quisiera%20comprar%20este%20producto:%20Ramo%20de%20flores', '_blank')">Comprar</button>
         </div>
+        <!-- 10 plantillas genéricas -->
+        <div class="producto">
+          <img src="assets/plantilla.jpg" alt="Producto">
+          <p>Nombre del producto - $00.000</p>
+          <button onclick="window.open('https://wa.me/573174715623?text=Hola!%20Estoy%20interesada%20en%20este%20producto', '_blank')">Comprar</button>
+        </div>
+        <!-- ... repite hasta 10 plantillas -->
       </div>
 
       <div class="galeria" data-categoria="cuadros" style="display:none">
         <div class="producto">
-          <img src="assets/cuadro1.jpg" alt="Cuadro 1">
+          <img src="assets/cuadro1.jpg" alt="Cuadro con frase personalizada">
           <p>Cuadro con frase personalizada - $30.000</p>
           <button onclick="window.open('https://wa.me/573174715623?text=Hola!%20Quisiera%20comprar%20este%20producto:%20Cuadro%20con%20frase%20personalizada', '_blank')">Comprar</button>
         </div>
+        <!-- 10 plantillas genéricas -->
+        <div class="producto">
+          <img src="assets/plantilla.jpg" alt="Producto">
+          <p>Nombre del producto - $00.000</p>
+          <button onclick="window.open('https://wa.me/573174715623?text=Hola!%20Estoy%20interesada%20en%20este%20producto', '_blank')">Comprar</button>
+        </div>
+        <!-- ... repite hasta 10 plantillas -->
       </div>
 
       <div class="galeria" data-categoria="juguetes" style="display:none">
         <div class="producto">
-          <img src="assets/juguete1.jpg" alt="Juguete 1">
+          <img src="assets/juguete1.jpg" alt="Set romántico">
           <p>Set romántico - $50.000</p>
           <button onclick="window.open('https://wa.me/573174715623?text=Hola!%20Quisiera%20comprar%20este%20producto:%20Set%20romántico', '_blank')">Comprar</button>
         </div>
+        <!-- 10 plantillas genéricas -->
+        <div class="producto">
+          <img src="assets/plantilla.jpg" alt="Producto">
+          <p>Nombre del producto - $00.000</p>
+          <button onclick="window.open('https://wa.me/573174715623?text=Hola!%20Estoy%20interesada%20en%20este%20producto', '_blank')">Comprar</button>
+        </div>
+        <!-- ... repite hasta 10 plantillas -->
       </div>
-
     </div>
   </section>
 
@@ -85,6 +164,7 @@
   <a href="https://wa.me/573174715623" class="whatsapp-button" target="_blank">💬</a>
 
   <script>
+    // Control categorías catálogo
     const botones = document.querySelectorAll(".categoria-btn");
     const galerias = document.querySelectorAll(".galeria");
 
@@ -97,24 +177,99 @@
       });
     });
 
-    function agregarPlantillas(cantidad) {
-      const plantillaHTML = `
-        <div class="producto">
-          <img src="assets/plantilla.jpg" alt="Producto">
-          <p>Nombre del producto - $00.000</p>
-          <button onclick="window.open('https://wa.me/573174715623?text=Hola!%20Estoy%20interesada%20en%20este%20producto', '_blank')">Comprar</button>
-        </div>
-      `;
-      const galerias = document.querySelectorAll(".galeria");
-      galerias.forEach(galeria => {
-        for (let i = 0; i < cantidad; i++) {
-          galeria.insertAdjacentHTML("beforeend", plantillaHTML);
+    // Datos productos para mostrar al azar en inicio
+    const productosPorCategoria = {
+      accesorios: [
+        {img: "assets/accesorio1.jpg", nombre: "Collar corazón", precio: "20.000"},
+        {img: "assets/plantilla.jpg", nombre: "Pulsera estrella", precio: "15.000"},
+        {img: "assets/plantilla.jpg", nombre: "Aretes luna", precio: "12.000"},
+        {img: "assets/plantilla.jpg", nombre: "Anillo sol", precio: "18.000"},
+        {img: "assets/plantilla.jpg", nombre: "Broche flor", precio: "10.000"},
+        {img: "assets/plantilla.jpg", nombre: "Collar perlas", precio: "25.000"},
+        {img: "assets/plantilla.jpg", nombre: "Pulsera trenzada", precio: "13.000"},
+        {img: "assets/plantilla.jpg", nombre: "Aretes corazon", precio: "14.000"},
+        {img: "assets/plantilla.jpg", nombre: "Anillo elegante", precio: "22.000"},
+        {img: "assets/plantilla.jpg", nombre: "Broche mariposa", precio: "16.000"},
+      ],
+      detalles: [
+        {img: "assets/detalle1.jpg", nombre: "Box chocolates y flores", precio: "35.000"},
+        {img: "assets/plantilla.jpg", nombre: "Caja dulce", precio: "20.000"},
+        {img: "assets/plantilla.jpg", nombre: "Ramo chocolate", precio: "30.000"},
+        {img: "assets/plantilla.jpg", nombre: "Caja sorpresa", precio: "25.000"},
+        {img: "assets/plantilla.jpg", nombre: "Flor con chocolate", precio: "22.000"},
+        {img: "assets/plantilla.jpg", nombre: "Caja regalo", precio: "28.000"},
+        {img: "assets/plantilla.jpg", nombre: "Set degustación", precio: "33.000"},
+        {img: "assets/plantilla.jpg", nombre: "Chocolate premium", precio: "40.000"},
+        {img: "assets/plantilla.jpg", nombre: "Caja corazón", precio: "37.000"},
+        {img: "assets/plantilla.jpg", nombre: "Detalle especial", precio: "45.000"},
+      ],
+      ramos: [
+        {img: "assets/ramo1.jpg", nombre: "Ramo de flores", precio: "40.000"},
+        {img: "assets/plantilla.jpg", nombre: "Ramo primavera", precio: "38.000"},
+        {img: "assets/plantilla.jpg", nombre: "Ramo rosa", precio: "42.000"},
+        {img: "assets/plantilla.jpg", nombre: "Ramo mixto", precio: "44.000"},
+        {img: "assets/plantilla.jpg", nombre: "Ramo elegante", precio: "50.000"},
+        {img: "assets/plantilla.jpg", nombre: "Ramo pequeño", precio: "35.000"},
+        {img: "assets/plantilla.jpg", nombre: "Ramo grande", precio: "60.000"},
+        {img: "assets/plantilla.jpg", nombre: "Ramo natural", precio: "45.000"},
+        {img: "assets/plantilla.jpg", nombre: "Ramo tropical", precio: "48.000"},
+        {img: "assets/plantilla.jpg", nombre: "Ramo clásico", precio: "39.000"},
+      ],
+      cuadros: [
+        {img: "assets/cuadro1.jpg", nombre: "Cuadro con frase personalizada", precio: "30.000"},
+        {img: "assets/plantilla.jpg", nombre: "Cuadro artístico", precio: "32.000"},
+        {img: "assets/plantilla.jpg", nombre: "Cuadro moderno", precio: "28.000"},
+        {img: "assets/plantilla.jpg", nombre: "Cuadro floral", precio: "35.000"},
+        {img: "assets/plantilla.jpg", nombre: "Cuadro abstracto", precio: "40.000"},
+        {img: "assets/plantilla.jpg", nombre: "Cuadro infantil", precio: "27.000"},
+        {img: "assets/plantilla.jpg", nombre: "Cuadro paisaje", precio: "33.000"},
+        {img: "assets/plantilla.jpg", nombre: "Cuadro minimalista", precio: "29.000"},
+        {img: "assets/plantilla.jpg", nombre: "Cuadro vintage", precio: "31.000"},
+        {img: "assets/plantilla.jpg", nombre: "Cuadro rústico", precio: "26.000"},
+      ],
+      juguetes: [
+        {img: "assets/juguete1.jpg", nombre: "Set romántico", precio: "50.000"},
+        {img: "assets/plantilla.jpg", nombre: "Juguete divertido", precio: "45.000"},
+        {img: "assets/plantilla.jpg", nombre: "Set sorpresa", precio: "55.000"},
+        {img: "assets/plantilla.jpg", nombre: "Kit especial", precio: "60.000"},
+        {img: "assets/plantilla.jpg", nombre: "Juguete elegante", precio: "48.000"},
+        {img: "assets/plantilla.jpg", nombre: "Kit clásico", precio: "52.000"},
+        {img: "assets/plantilla.jpg", nombre: "Juguete premium", precio: "65.000"},
+        {img: "assets/plantilla.jpg", nombre: "Set íntimo", precio: "53.000"},
+        {img: "assets/plantilla.jpg", nombre: "Kit básico", precio: "40.000"},
+        {img: "assets/plantilla.jpg", nombre: "Juguete colorido", precio: "47.000"},
+      ]
+    };
+
+    function mostrarProductosAzar() {
+      Object.keys(productosPorCategoria).forEach(categoria => {
+        const contenedor = document.getElementById(`azar-${categoria}`);
+        contenedor.innerHTML = "";
+        const productos = productosPorCategoria[categoria];
+
+        // Elegir 5 productos al azar sin repetición
+        const seleccionados = [];
+        while(seleccionados.length < 5 && seleccionados.length < productos.length) {
+          const randIndex = Math.floor(Math.random() * productos.length);
+          if(!seleccionados.includes(productos[randIndex])) {
+            seleccionados.push(productos[randIndex]);
+          }
         }
+
+        // Insertar productos en el carrusel
+        seleccionados.forEach(prod => {
+          const div = document.createElement("div");
+          div.classList.add("producto-azar");
+          div.innerHTML = `
+            <img src="${prod.img}" alt="${prod.nombre}">
+            <p>${prod.nombre} - $${prod.precio}</p>
+          `;
+          contenedor.appendChild(div);
+        });
       });
     }
 
-    agregarPlantillas(10);
+    window.onload = mostrarProductosAzar;
   </script>
 </body>
 </html>
-
