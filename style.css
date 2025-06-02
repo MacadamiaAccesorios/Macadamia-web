@@ -1,121 +1,180 @@
-body {
-    font-family: Arial, sans-serif;
+/* Reset básico */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff8f4;
+    color: #333;
+}
+
+/* Encabezado */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1em;
-    background-color: #f9f9f9;
-    border-bottom: 1px solid #ccc;
+    background-color: #d294aa;
+    padding: 1rem 2rem;
 }
 
 .logo {
     height: 60px;
+    border-radius: 10px;
 }
 
 nav ul {
-    list-style: none;
     display: flex;
-    gap: 1em;
-    margin: 0;
-    padding: 0;
+    gap: 1.5rem;
+    list-style: none;
 }
 
-nav ul li a {
+nav a {
     text-decoration: none;
-    color: #333;
+    color: white;
     font-weight: bold;
+    transition: color 0.3s;
 }
 
+nav a:hover {
+    color: #ffe0ed;
+}
+
+/* Sección Hero */
 .hero {
     text-align: center;
-    padding: 2em;
-    background-color: #ffe8f0;
+    padding: 3rem 2rem;
+    background: linear-gradient(to right, #ffd6e2, #fff0f5);
 }
 
-.catalogo .contenedor {
-    padding: 2em;
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 
+.hero p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Botones categoría */
 .categorias {
     display: flex;
     flex-wrap: wrap;
-    gap: 1em;
-    margin-bottom: 2em;
+    gap: 1rem;
+    justify-content: center;
+    margin: 2rem 0;
 }
 
 .categoria-btn {
-    padding: 0.5em 1em;
-    background-color: #f2c1d1;
+    background-color: #d294aa;
+    color: white;
     border: none;
-    border-radius: 5px;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
     cursor: pointer;
-    font-weight: bold;
+    font-size: 1rem;
+    transition: background 0.3s;
 }
 
-.galeria {
+.categoria-btn:hover {
+    background-color: #b87b93;
+}
+
+/* Galería de productos */
+.catalogo .galeria {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1em;
+    gap: 1.5rem;
+    padding: 1rem;
+    margin-top: 1rem;
 }
 
 .producto {
-    background-color: #fff;
-    border: 1px solid #eee;
-    padding: 1em;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
     text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .producto img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
 }
 
 .producto p {
-    margin: 0.5em 0;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #d294aa;
 }
 
-/* Botón de WhatsApp individual por producto */
-.whatsapp-producto {
-    display: inline-block;
-    margin-top: 8px;
-    padding: 6px 12px;
+.boton-wsp {
     background-color: #25D366;
     color: white;
+    padding: 0.5rem;
+    border-radius: 6px;
     text-decoration: none;
-    border-radius: 5px;
     font-weight: bold;
-}
-.whatsapp-producto:hover {
-    background-color: #1ebe5b;
+    transition: background 0.3s;
 }
 
-/* Botón flotante general de WhatsApp */
+.boton-wsp:hover {
+    background-color: #1ebe5a;
+}
+
+/* Sección contacto */
+.contacto {
+    background-color: #fff0f5;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Botón flotante WhatsApp */
 .whatsapp-button {
     position: fixed;
     bottom: 20px;
     right: 20px;
     background-color: #25D366;
     color: white;
-    font-size: 1.5em;
-    padding: 0.6em 0.8em;
+    font-size: 1.5rem;
+    padding: 1rem;
     border-radius: 50%;
     text-decoration: none;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-}
-.whatsapp-button:hover {
-    background-color: #1ebe5b;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background 0.3s;
 }
 
-.contacto {
-    text-align: center;
-    padding: 2em;
-    background-color: #f7f7f7;
+.whatsapp-button:hover {
+    background-color: #1ebe5a;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .galeria {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+
+    .producto img {
+        height: 140px;
+    }
 }
