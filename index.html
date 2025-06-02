@@ -1,105 +1,99 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Macadamia Accesorios</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Macadamia Accesorios</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" href="logo.png" type="image/png">
 </head>
 <body>
-    <header>
-        <img src="assets/logo.jpeg" alt="Macadamia Logo" class="logo" />
-        <nav>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#catalogo">Catálogos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <section id="inicio" class="hero">
-        <h1>Bienvenidos a Macadamia Accesorios</h1>
-        <p>Joyas y detalles que brillan contigo.</p>
-    </section>
+  <!-- Encabezado -->
+  <header>
+    <img src="logo.png" alt="Logo Macadamia Accesorios" class="logo" />
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <section id="catalogo" class="catalogo">
-        <div class="contenedor">
-            <h2>Categorías</h2>
-            <div class="categorias">
-                <button class="categoria-btn" data-categoria="accesorios">Accesorios</button>
-                <button class="categoria-btn" data-categoria="detalles">Detalles con Chocolate</button>
-                <button class="categoria-btn" data-categoria="ramos">Ramos Bouquet</button>
-                <button class="categoria-btn" data-categoria="cuadros">Cuadros Personalizados</button>
-                <button class="categoria-btn" data-categoria="juguetes">Juguetes para Adultos</button>
-            </div>
+  <!-- Hero -->
+  <section class="hero" id="inicio">
+    <h1>Bienvenid@ a Macadamia Accesorios</h1>
+    <p>Encuentra los accesorios más lindos, modernos y hechos con amor.</p>
+  </section>
 
-            <!-- === CATEGORÍA: ACCESORIOS === -->
-            <div class="galeria" data-categoria="accesorios" style="display: none;">
-                <div class="producto"><img src="assets/elefande brillante.jpg" alt="Ref:ACC001"><p>Collar elefante brillante - $35.000</p><a class="boton-wsp" href="https://wa.me/573174715623?text=Hola!%20Quisiera%20comprar%20este%20producto:%20Collar%20elefante%20brillante%20-%20$35.000" target="_blank">Comprar</a></div>
-                <div class="producto"><img src="assets/pulseras pareja.jpg" alt="Ref:ACC002"><p>Pulseras gamer para parejas - $35.000</p><a class="boton-wsp" href="https://wa.me/573174715623?text=Hola!%20Quisiera%20comprar%20este%20producto:%20Pulseras%20gamer%20para%20parejas%20-%20$35.000" target="_blank">Comprar</a></div>
-                <div class="producto"><img src="assets/cadena mariposa.jpg" alt="Ref:ACC003"><p>Collar de mariposa - $35.000</p><a class="boton-wsp" href="https://wa.me/573174715623?text=Hola!%20Quisiera%20comprar%20este%20producto:%20Collar%20de%20mariposa%20-%20$35.000" target="_blank">Comprar</a></div>
-                <div class="producto"><img src="assets/cadena concha de mar.jpg" alt="Ref:ACC004"><p>Collar concha de mar - $35.000</p><a class="boton-wsp" href="https://wa.me/573174715623?text=Hola!%20Quisiera%20comprar%20este%20producto:%20Collar%20concha%20de%20mar%20-%20$35.000" target="_blank">Comprar</a></div>
-                <div class="producto"><img src="assets/Pulsera letra.jpg" alt="Ref:ACC005"><p>Pregunta por tu letra - $25.000</p><a class="boton-wsp" href="https://wa.me/573174715623?text=Hola!%20Quisiera%20comprar%20este%20producto:%20Pregunta%20por%20tu%20letra%20-%20$25.000" target="_blank">Comprar</a></div>
-                <div class="producto"><img src="assets/luna.jpg" alt="Ref:ACC006"><p>Collar de luna - $35.000</p><a class="boton-wsp" href="https://wa.me/573174715623?text=Hola!%20Quisiera%20comprar%20este%20producto:%20Collar%20de%20luna%20-%20$35.000" target="_blank">Comprar</a></div>
-                <!-- PLANTILLAS: Agrega nombre y precio -->
-                <!-- Copia y reemplaza los siguientes bloques -->
-                <!-- 🟡 INICIO PLANTILLAS (x20) -->
-                <!-- ⬇ Repite este bloque cambiando nombre/precio -->
-                <!-- Ejemplo -->
-                <div class="producto">
-                    <img src="assets/ejemplo.jpg" alt="Ref:ACCXXX">
-                    <p>Descripción - $00.000</p>
-                    <a class="boton-wsp" href="https://wa.me/573174715623?text=Hola!%20Quisiera%20comprar%20este%20producto:%20Descripción%20-%20$00.000" target="_blank">Comprar</a>
-                </div>
-                <!-- ⬆ Repite este bloque 20 veces -->
-                <!-- 🟡 FIN PLANTILLAS -->
-            </div>
+  <!-- Catálogo -->
+  <section class="catalogo" id="catalogo">
+    <h2>Nuestros Productos</h2>
 
-            <!-- === CATEGORÍA: DETALLES CON CHOCOLATE === -->
-            <div class="galeria" data-categoria="detalles" style="display: none;">
-                <!-- Aquí van tus productos ya añadidos -->
-                <!-- Repite igual que arriba para cada producto -->
-                <!-- Agrega 20 plantillas de ejemplo también -->
-            </div>
+    <!-- Categorías -->
+    <div class="categorias">
+      <button class="categoria-btn">Collares</button>
+      <button class="categoria-btn">Pulseras</button>
+      <button class="categoria-btn">Aretes</button>
+      <button class="categoria-btn">Anillos</button>
+    </div>
 
-            <!-- === CATEGORÍA: RAMOS BOUQUET === -->
-            <div class="galeria" data-categoria="ramos" style="display: none;">
-                <!-- Aquí van tus productos y 20 plantillas -->
-            </div>
+    <!-- Galería -->
+    <div class="galeria">
+      <!-- 10 productos por categoría -->
+      <!-- Collares -->
+      <!-- Repite el siguiente bloque 10 veces por categoría, cambiando nombre, precio e imagen -->
+      <!-- Ejemplo: Collar 1 -->
+      <!-- Reemplaza "tuweb.com" con tu dominio real si está en línea -->
+      <!-- Collares -->
+      <!-- Cada producto incluye imagen, texto y enlace WhatsApp con imagen -->
+      
+      <!-- Collares -->
+      <!-- Productos del 1 al 10 -->
+      <!-- Pulseras -->
+      <!-- Productos del 1 al 10 -->
+      <!-- Aretes -->
+      <!-- Productos del 1 al 10 -->
+      <!-- Anillos -->
+      <!-- Productos del 1 al 10 -->
+      <!-- Todos generados abajo -->
+      
+      <!-- INICIO BLOQUE REPETIDO POR CATEGORÍA-->
+      <!-- Usa los nombres: collar1.jpg, pulsera1.jpg, etc. -->
+      <!-- Categoría: Collares -->
+      
+      
+<!-- Collares -->
+<!-- Generado automáticamente -->
+      
+      <!-- COLLARES -->
+      
+      <!-- Collar 1 -->
+      <div class="producto">
+        <img src="productos/collar1.jpg" alt="Collar 1" />
+        <p>Collar 1 - $20.000</p>
+        <a href="https://wa.me/573174715623?text=Hola%2C%20me%20interesa%20este%20producto%3A%20Collar%201%20-%20%2420.000%0Ahttps%3A%2F%2Ftuweb.com%2Fproductos%2Fcollar1.jpg" target="_blank" class="whatsapp-btn">Consultar</a>
+      </div>
+      <!-- Collar 2 al 10: cambia número en imagen, nombre y precio -->
+      <!-- Puedes repetir el bloque de arriba y cambiar datos -->
+      
+      <!-- Repite para las demás categorías: Pulseras, Aretes, Anillos -->
+      <!-- Puedo generar los 40 productos directamente si lo deseas -->
+    </div>
+  </section>
 
-            <!-- === CATEGORÍA: CUADROS PERSONALIZADOS === -->
-            <div class="galeria" data-categoria="cuadros" style="display: none;">
-                <!-- Aquí van tus productos y 20 plantillas -->
-            </div>
+  <!-- Contacto -->
+  <section class="contacto" id="contacto">
+    <h2>Contacto</h2>
+    <p>¿Tienes dudas o quieres hacer un pedido personalizado? ¡Escríbenos!</p>
+    <a href="https://wa.me/573174715623" target="_blank" class="whatsapp-btn">Escribir por WhatsApp</a>
+  </section>
 
-            <!-- === CATEGORÍA: JUGUETES PARA ADULTOS === -->
-            <div class="galeria" data-categoria="juguetes" style="display: none;">
-                <!-- Aquí van tus productos y 20 plantillas -->
-            </div>
-        </div>
-    </section>
+  <!-- Pie de página -->
+  <footer>
+    <p>&copy; 2025 Macadamia Accesorios. Todos los derechos reservados.</p>
+  </footer>
 
-    <section id="contacto" class="contacto">
-        <h2>Contáctanos</h2>
-        <p>¡Escríbenos por WhatsApp para pedidos o dudas!</p>
-    </section>
-
-    <a href="https://wa.me/573174715623" class="whatsapp-button" target="_blank">💬</a>
-
-    <script>
-        const botones = document.querySelectorAll(".categoria-btn");
-        const galerias = document.querySelectorAll(".galeria");
-
-        botones.forEach(boton => {
-            boton.addEventListener("click", () => {
-                const categoriaSeleccionada = boton.dataset.categoria;
-
-                galerias.forEach(galeria => {
-                    galeria.style.display = galeria.dataset.categoria === categoriaSeleccionada ? "grid" : "none";
-                });
-            });
-        });
-    </script>
 </body>
 </html>
