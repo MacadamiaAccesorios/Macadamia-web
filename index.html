@@ -1,43 +1,105 @@
-<!-- Sección HTML (de cada galería) – solo mantén los productos reales -->
-<div class="galeria" data-categoria="accesorios">
-  <div class="producto">
-    <img src="assets/accesorio1.jpg" alt="Accesorio 1">
-    <p>Collar corazón - $20.000</p>
-    <button onclick="window.open('https://wa.me/573174715623?text=Hola!%20Quisiera%20comprar%20este%20producto:%20Collar%20corazón', '_blank')">Comprar</button>
-  </div>
-</div>
-<!-- Haz lo mismo en cada galería: solo deja los productos reales -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Macadamia Accesorios</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img src="assets/logo.jpeg" alt="Macadamia Logo" class="logo" />
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#catalogo">Catálogos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<!-- Agrega este script justo antes del cierre de </body> -->
-<script>
-  const botones = document.querySelectorAll(".categoria-btn");
-  const galerias = document.querySelectorAll(".galeria");
+  <section id="inicio" class="hero">
+    <h1>Bienvenidos a Macadamia Accesorios</h1>
+    <p>Joyas y detalles que brillan contigo.</p>
 
-  botones.forEach(boton => {
-    boton.addEventListener("click", () => {
-      const categoriaSeleccionada = boton.dataset.categoria;
-      galerias.forEach(galeria => {
-        galeria.style.display = galeria.dataset.categoria === categoriaSeleccionada ? "grid" : "none";
+    <div class="carruseles">
+      <h2>Explora nuestros productos destacados</h2>
+      <div class="carrusel-categoria">
+        <h3>Accesorios</h3>
+        <div class="carrusel">
+          <img src="assets/accesorio1.jpg" alt="Producto destacado accesorio">
+          <img src="assets/plantilla.jpg" alt="Plantilla accesorio">
+          <img src="assets/plantilla.jpg" alt="Plantilla accesorio">
+          <img src="assets/plantilla.jpg" alt="Plantilla accesorio">
+          <img src="assets/plantilla.jpg" alt="Plantilla accesorio">
+        </div>
+      </div>
+      <div class="carrusel-categoria">
+        <h3>Detalles con Chocolate</h3>
+        <div class="carrusel">
+          <img src="assets/detalle1.jpg" alt="Producto destacado detalle">
+          <img src="assets/plantilla.jpg" alt="Plantilla detalle">
+          <img src="assets/plantilla.jpg" alt="Plantilla detalle">
+          <img src="assets/plantilla.jpg" alt="Plantilla detalle">
+          <img src="assets/plantilla.jpg" alt="Plantilla detalle">
+        </div>
+      </div>
+      <div class="carrusel-categoria">
+        <h3>Ramos Bouquet</h3>
+        <div class="carrusel">
+          <img src="assets/ramo1.jpg" alt="Producto destacado ramo">
+          <img src="assets/plantilla.jpg" alt="Plantilla ramo">
+          <img src="assets/plantilla.jpg" alt="Plantilla ramo">
+          <img src="assets/plantilla.jpg" alt="Plantilla ramo">
+          <img src="assets/plantilla.jpg" alt="Plantilla ramo">
+        </div>
+      </div>
+      <div class="carrusel-categoria">
+        <h3>Cuadros Personalizados</h3>
+        <div class="carrusel">
+          <img src="assets/cuadro1.jpg" alt="Producto destacado cuadro">
+          <img src="assets/plantilla.jpg" alt="Plantilla cuadro">
+          <img src="assets/plantilla.jpg" alt="Plantilla cuadro">
+          <img src="assets/plantilla.jpg" alt="Plantilla cuadro">
+          <img src="assets/plantilla.jpg" alt="Plantilla cuadro">
+        </div>
+      </div>
+      <div class="carrusel-categoria">
+        <h3>Juguetes para Adultos</h3>
+        <div class="carrusel">
+          <img src="assets/juguete1.jpg" alt="Producto destacado juguete">
+          <img src="assets/plantilla.jpg" alt="Plantilla juguete">
+          <img src="assets/plantilla.jpg" alt="Plantilla juguete">
+          <img src="assets/plantilla.jpg" alt="Plantilla juguete">
+          <img src="assets/plantilla.jpg" alt="Plantilla juguete">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="catalogo" class="catalogo">
+    <!-- catálogo existente -->
+  </section>
+
+  <section id="contacto" class="contacto">
+    <h2>Contáctanos</h2>
+    <p>¡Escríbenos por WhatsApp para pedidos o dudas!</p>
+  </section>
+
+  <a href="https://wa.me/573174715623" class="whatsapp-button" target="_blank">💬</a>
+
+  <script>
+    const botones = document.querySelectorAll(".categoria-btn");
+    const galerias = document.querySelectorAll(".galeria");
+
+    botones.forEach(boton => {
+      boton.addEventListener("click", () => {
+        const categoriaSeleccionada = boton.dataset.categoria;
+        galerias.forEach(galeria => {
+          galeria.style.display = galeria.dataset.categoria === categoriaSeleccionada ? "grid" : "none";
+        });
       });
     });
-  });
-
-  // Función para agregar 20 plantillas genéricas a cada galería
-  function agregarPlantillas() {
-    const plantillaHTML = `
-      <div class="producto">
-        <img src="assets/plantilla.jpg" alt="Producto">
-        <p>Nombre del producto - $00.000</p>
-        <button onclick="window.open('https://wa.me/573174715623?text=Hola!%20Estoy%20interesada%20en%20este%20producto', '_blank')">Comprar</button>
-      </div>
-    `;
-
-    galerias.forEach(galeria => {
-      for (let i = 0; i < 20; i++) {
-        galeria.insertAdjacentHTML("beforeend", plantillaHTML);
-      }
-    });
-  }
-
-  agregarPlantillas();
-</script>
+  </script>
+</body>
+</html>
