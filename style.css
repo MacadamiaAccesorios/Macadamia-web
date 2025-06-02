@@ -6,175 +6,258 @@
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #fffaf7;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f7f7f7;
   color: #333;
   line-height: 1.6;
+  min-height: 100vh;
 }
 
-/* Encabezado */
+/* Header */
 header {
-  background-color: #ffe8e0;
-  padding: 1rem 2rem;
+  background: #663399;
+  color: white;
+  padding: 10px 20px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  justify-content: space-between;
 }
 
 .logo {
-  height: 60px;
-  border-radius: 12px;
+  height: 50px;
+  width: auto;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 15px;
 }
 
 nav a {
+  color: white;
   text-decoration: none;
-  color: #c2514b;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 nav a:hover {
   text-decoration: underline;
 }
 
-/* Hero */
+/* Hero - Inicio */
 .hero {
-  background-color: #ffefea;
-  padding: 4rem 2rem;
+  background: #efefef;
+  padding: 30px 20px;
   text-align: center;
 }
 
 .hero h1 {
   font-size: 2.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
+  color: #663399;
 }
 
 .hero p {
   font-size: 1.2rem;
+  margin-bottom: 30px;
 }
 
-/* Catálogo */
+/* Productos azar - carrusel horizontal */
+.productos-azar {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.categoria-azar {
+  margin-bottom: 40px;
+}
+
+.categoria-azar h3 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  color: #663399;
+}
+
+/* Carrusel horizontal con scroll */
+.carrusel-azar {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #663399 #ddd;
+}
+
+.carrusel-azar::-webkit-scrollbar {
+  height: 8px;
+}
+
+.carrusel-azar::-webkit-scrollbar-track {
+  background: #ddd;
+  border-radius: 4px;
+}
+
+.carrusel-azar::-webkit-scrollbar-thumb {
+  background: #663399;
+  border-radius: 4px;
+}
+
+/* Producto azar */
+.producto-azar {
+  background: white;
+  min-width: 160px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(102, 51, 153, 0.15);
+  padding: 10px;
+  text-align: center;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.producto-azar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(102, 51, 153, 0.3);
+}
+
+.producto-azar img {
+  max-width: 100%;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.producto-azar p {
+  font-weight: 600;
+  color: #663399;
+}
+
+/* Catalogo */
 .catalogo .contenedor {
-  padding: 2rem;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.catalogo h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #663399;
 }
 
 .categorias {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 2rem;
   justify-content: center;
+  gap: 15px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
 }
 
 .categoria-btn {
-  padding: 0.7rem 1.5rem;
-  background-color: #ffb6a1;
+  background: #663399;
   border: none;
-  border-radius: 20px;
   color: white;
-  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 20px;
   cursor: pointer;
-  transition: background 0.3s;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
 }
 
 .categoria-btn:hover {
-  background-color: #e89b8b;
+  background: #4b2477;
 }
 
 .galeria {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
 }
 
 .producto {
   background: white;
-  border-radius: 12px;
-  padding: 1rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(102, 51, 153, 0.1);
+  padding: 10px;
   text-align: center;
-  transition: transform 0.2s;
+  transition: box-shadow 0.3s ease;
 }
 
 .producto:hover {
-  transform: scale(1.03);
+  box-shadow: 0 0 12px rgba(102, 51, 153, 0.3);
 }
 
 .producto img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
+  max-width: 100%;
+  border-radius: 6px;
+  margin-bottom: 8px;
 }
 
 .producto p {
-  margin-top: 0.5rem;
-  font-size: 0.95rem;
+  font-weight: 600;
+  color: #663399;
+  margin-bottom: 8px;
 }
 
 .producto button {
-  margin-top: 0.5rem;
-  background-color: #25d366;
-  border: none;
+  background: #663399;
   color: white;
-  padding: 0.5rem 0.8rem;
-  border-radius: 6px;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 20px;
   cursor: pointer;
-  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
 }
 
 .producto button:hover {
-  background-color: #1ebc59;
+  background: #4b2477;
 }
 
 /* Contacto */
 .contacto {
-  padding: 3rem 2rem;
+  background: #663399;
+  color: white;
+  padding: 30px 20px;
   text-align: center;
-  background-color: #ffece7;
 }
 
 .contacto h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
+  font-size: 2rem;
+  margin-bottom: 10px;
 }
 
-/* Botón flotante WhatsApp */
+.contacto p {
+  font-size: 1.2rem;
+}
+
+/* Botón WhatsApp fijo */
 .whatsapp-button {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 25px;
+  right: 25px;
   background-color: #25d366;
   color: white;
-  font-size: 2rem;
+  font-size: 28px;
+  padding: 12px 15px;
   border-radius: 50%;
-  padding: 0.7rem 1rem;
   text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  z-index: 999;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+  z-index: 1000;
 }
 
 .whatsapp-button:hover {
-  background-color: #1ebc59;
+  background-color: #1ebe57;
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  .galeria {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  }
-
-  .hero h1 {
-    font-size: 2rem;
+@media(max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
   }
 
   nav ul {
-    flex-direction: column;
-    align-items: flex-end;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
