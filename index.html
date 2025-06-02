@@ -40,20 +40,6 @@
           <p>Collar corazón - $20.000</p>
           <button onclick="window.open('https://wa.me/573174715623?text=Hola!%20Quisiera%20comprar%20este%20producto:%20Collar%20corazón', '_blank')">Comprar</button>
         </div>
-        <!-- Plantillas adicionales -->
-        <!-- 20 plantillas -->
-        <!-- Repetidas -->
-        <!-- ... -->
-        <!-- A continuación se insertan manualmente 20 bloques similares -->
-        <!-- Plantilla repetida 1 a 20 -->
-        <!-- Para cada categoría -->
-        <!-- Aquí solo se deja una de ejemplo -->
-        <div class="producto">
-          <img src="assets/plantilla.jpg" alt="Producto">
-          <p>Nombre del producto - $00.000</p>
-          <button onclick="window.open('https://wa.me/573174715623?text=Hola!%20Estoy%20interesada%20en%20este%20producto', '_blank')">Comprar</button>
-        </div>
-        <!-- (Repite este bloque hasta 20 veces si es necesario) -->
       </div>
 
       <div class="galeria" data-categoria="detalles" style="display:none">
@@ -61,12 +47,6 @@
           <img src="assets/detalle1.jpg" alt="Detalle 1">
           <p>Box chocolates y flores - $35.000</p>
           <button onclick="window.open('https://wa.me/573174715623?text=Hola!%20Quisiera%20comprar%20este%20producto:%20Box%20chocolates%20y%20flores', '_blank')">Comprar</button>
-        </div>
-        <!-- Plantillas aquí también -->
-        <div class="producto">
-          <img src="assets/plantilla.jpg" alt="Producto">
-          <p>Nombre del producto - $00.000</p>
-          <button onclick="window.open('https://wa.me/573174715623?text=Hola!%20Estoy%20interesada%20en%20este%20producto', '_blank')">Comprar</button>
         </div>
       </div>
 
@@ -76,11 +56,6 @@
           <p>Ramo de flores - $40.000</p>
           <button onclick="window.open('https://wa.me/573174715623?text=Hola!%20Quisiera%20comprar%20este%20producto:%20Ramo%20de%20flores', '_blank')">Comprar</button>
         </div>
-        <div class="producto">
-          <img src="assets/plantilla.jpg" alt="Producto">
-          <p>Nombre del producto - $00.000</p>
-          <button onclick="window.open('https://wa.me/573174715623?text=Hola!%20Estoy%20interesada%20en%20este%20producto', '_blank')">Comprar</button>
-        </div>
       </div>
 
       <div class="galeria" data-categoria="cuadros" style="display:none">
@@ -89,11 +64,6 @@
           <p>Cuadro con frase personalizada - $30.000</p>
           <button onclick="window.open('https://wa.me/573174715623?text=Hola!%20Quisiera%20comprar%20este%20producto:%20Cuadro%20con%20frase%20personalizada', '_blank')">Comprar</button>
         </div>
-        <div class="producto">
-          <img src="assets/plantilla.jpg" alt="Producto">
-          <p>Nombre del producto - $00.000</p>
-          <button onclick="window.open('https://wa.me/573174715623?text=Hola!%20Estoy%20interesada%20en%20este%20producto', '_blank')">Comprar</button>
-        </div>
       </div>
 
       <div class="galeria" data-categoria="juguetes" style="display:none">
@@ -101,11 +71,6 @@
           <img src="assets/juguete1.jpg" alt="Juguete 1">
           <p>Set romántico - $50.000</p>
           <button onclick="window.open('https://wa.me/573174715623?text=Hola!%20Quisiera%20comprar%20este%20producto:%20Set%20romántico', '_blank')">Comprar</button>
-        </div>
-        <div class="producto">
-          <img src="assets/plantilla.jpg" alt="Producto">
-          <p>Nombre del producto - $00.000</p>
-          <button onclick="window.open('https://wa.me/573174715623?text=Hola!%20Estoy%20interesada%20en%20este%20producto', '_blank')">Comprar</button>
         </div>
       </div>
 
@@ -131,6 +96,25 @@
         });
       });
     });
+
+    function agregarPlantillas(cantidad) {
+      const plantillaHTML = `
+        <div class="producto">
+          <img src="assets/plantilla.jpg" alt="Producto">
+          <p>Nombre del producto - $00.000</p>
+          <button onclick="window.open('https://wa.me/573174715623?text=Hola!%20Estoy%20interesada%20en%20este%20producto', '_blank')">Comprar</button>
+        </div>
+      `;
+      const galerias = document.querySelectorAll(".galeria");
+      galerias.forEach(galeria => {
+        for (let i = 0; i < cantidad; i++) {
+          galeria.insertAdjacentHTML("beforeend", plantillaHTML);
+        }
+      });
+    }
+
+    agregarPlantillas(10);
   </script>
 </body>
 </html>
+
