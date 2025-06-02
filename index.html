@@ -34,27 +34,30 @@
                 <button class="categoria-btn" data-categoria="juguetes">Juguetes para Adultos</button>
             </div>
 
-            <!-- Producto con botón WhatsApp -->
-            <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                document.querySelectorAll(".producto").forEach(producto => {
-                    const img = producto.querySelector("img");
-                    const descripcion = producto.querySelector("p").innerText;
-                    const urlImagen = location.origin + '/' + img.getAttribute("src");
-                    const mensaje = `Hola, estoy interesad@ en este producto: ${descripcion} %0AImagen: ${urlImagen}`;
-                    const link = document.createElement("a");
-                    link.href = `https://wa.me/573174715623?text=${mensaje}`;
-                    link.target = "_blank";
-                    link.innerText = "Comprar por WhatsApp";
-                    link.className = "boton-whatsapp-producto";
-                    producto.appendChild(link);
-                });
-            });
-            </script>
+            <!-- Accesorios -->
+            <div class="galeria" data-categoria="accesorios" style="display: none;">
+                <div class="producto"><img src="assets/elefande brillante.jpg" alt="Ref:ACC001"><p>Collar elefante brillante - $35.000</p><a href="#" class="whatsapp-producto">Consultar por WhatsApp</a></div>
+                <div class="producto"><img src="assets/pulseras pareja.jpg" alt="Ref:ACC002"><p>Pulseras gamer para parejas - $35.000</p><a href="#" class="whatsapp-producto">Consultar por WhatsApp</a></div>
+                <div class="producto"><img src="assets/cadena mariposa.jpg" alt="Ref:ACC003"><p>Collar de mariposa - $35.000</p><a href="#" class="whatsapp-producto">Consultar por WhatsApp</a></div>
+                <div class="producto"><img src="assets/cadena concha de mar.jpg" alt="Ref:ACC004"><p>Collar concha de mar - $35.000</p><a href="#" class="whatsapp-producto">Consultar por WhatsApp</a></div>
+                <div class="producto"><img src="assets/Pulsera letra.jpg" alt="Ref:ACC005"><p>Pregunta por tu letra - $25.000</p><a href="#" class="whatsapp-producto">Consultar por WhatsApp</a></div>
+                <div class="producto"><img src="assets/luna.jpg" alt="Ref:ACC006"><p>Collar de luna - $35.000</p><a href="#" class="whatsapp-producto">Consultar por WhatsApp</a></div>
+            </div>
 
-            <!-- Las galerías existentes no se modifican -->
-            <!-- Todo el contenido que sigue permanece intacto -->
+            <!-- Detalles con Chocolate -->
+            <div class="galeria" data-categoria="detalles" style="display: none;">
+                <div class="producto"><img src="assets/1.jpg" alt="Ref:19171"><p>Con tarjeta personalizada - $65.000</p><a href="#" class="whatsapp-producto">Consultar por WhatsApp</a></div>
+                <div class="producto"><img src="assets/10.jpg" alt="Ref:19172"><p>Mensaje personalizado - $35.000</p><a href="#" class="whatsapp-producto">Consultar por WhatsApp</a></div>
+                <div class="producto"><img src="assets/100.jpg" alt="Ref:19173"><p>Caja con chocoreo + tarjeta personalizada - $37.000</p><a href="#" class="whatsapp-producto">Consultar por WhatsApp</a></div>
+                <div class="producto"><img src="assets/101.jpg" alt="Ref:19174"><p>Con tarjeta personalizada - $46.000</p><a href="#" class="whatsapp-producto">Consultar por WhatsApp</a></div>
+                <div class="producto"><img src="assets/11.jpg" alt="Ref:19175"><p>Con tarjeta personalizada - $38.000</p><a href="#" class="whatsapp-producto">Consultar por WhatsApp</a></div>
+                <div class="producto"><img src="assets/12.jpg" alt="Ref:19176"><p>Chocoreo + ferrero - $46.000</p><a href="#" class="whatsapp-producto">Consultar por WhatsApp</a></div>
+                <div class="producto"><img src="assets/InShot_20250206_200421855.jpg" alt="Ref:19177"><p>Fresas con chocolate + chocoreo - $47.000</p><a href="#" class="whatsapp-producto">Consultar por WhatsApp</a></div>
+                <div class="producto"><img src="assets/14.jpg" alt="Ref:19178"><p>Fresas con chocolate + cerveza corona - $130.000</p><a href="#" class="whatsapp-producto">Consultar por WhatsApp</a></div>
+                <div class="producto"><img src="assets/15.jpg" alt="Ref:19179"><p>Vaso con fresas - $56.000</p><a href="#" class="whatsapp-producto">Consultar por WhatsApp</a></div>
+            </div>
 
+            <!-- Las otras categorías no se modifican por ahora -->
         </div>
     </section>
 
@@ -74,27 +77,24 @@
                 const categoriaSeleccionada = boton.dataset.categoria;
 
                 galerias.forEach(galeria => {
-                    if (galeria.dataset.categoria === categoriaSeleccionada) {
-                        galeria.style.display = "grid";
-                    } else {
-                        galeria.style.display = "none";
-                    }
+                    galeria.style.display = galeria.dataset.categoria === categoriaSeleccionada ? "grid" : "none";
                 });
             });
         });
-    </script>
 
-    <style>
-        .boton-whatsapp-producto {
-            display: inline-block;
-            margin-top: 5px;
-            padding: 6px 12px;
-            background-color: #25D366;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 0.9em;
-        }
-    </style>
+        // Botones WhatsApp en productos
+        const numeroWhatsApp = '573174715623';
+        document.querySelectorAll('.whatsapp-producto').forEach(boton => {
+            boton.addEventListener('click', function (e) {
+                e.preventDefault();
+                const producto = this.closest('.producto');
+                const nombre = producto.querySelector('p').innerText;
+                const imagen = producto.querySelector('img').src;
+                const mensaje = `¡Hola! Estoy interesada en este producto:\n*${nombre}*\nImagen: ${imagen}`;
+                const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+                window.open(url, '_blank');
+            });
+        });
+    </script>
 </body>
 </html>
