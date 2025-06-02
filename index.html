@@ -1,99 +1,428 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Macadamia Accesorios</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="icon" href="logo.png" type="image/png">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Macadamia Accesorios</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+    <header>
+        <img src="assets/logo.jpeg" alt="Macadamia Logo" class="logo" />
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#catalogo">Catálogos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <!-- Encabezado -->
-  <header>
-    <img src="logo.png" alt="Logo Macadamia Accesorios" class="logo" />
-    <nav>
-      <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#catalogo">Catálogo</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+    <section id="inicio" class="hero">
+        <h1>Bienvenidos a Macadamia Accesorios</h1>
+        <p>Joyas y detalles que brillan contigo.</p>
+    </section>
 
-  <!-- Hero -->
-  <section class="hero" id="inicio">
-    <h1>Bienvenid@ a Macadamia Accesorios</h1>
-    <p>Encuentra los accesorios más lindos, modernos y hechos con amor.</p>
-  </section>
+    <section id="catalogo" class="catalogo">
+        <div class="contenedor">
+            <h2>Categorías</h2>
+            <div class="categorias">
+                <button class="categoria-btn" data-categoria="accesorios">Accesorios</button>
+                <button class="categoria-btn" data-categoria="detalles">Detalles con Chocolate</button>
+                <button class="categoria-btn" data-categoria="ramos">Ramos Bouquet</button>
+                <button class="categoria-btn" data-categoria="cuadros">Cuadros Personalizados</button>
+                <button class="categoria-btn" data-categoria="juguetes">Juguetes para Adultos</button>
+            </div>
 
-  <!-- Catálogo -->
-  <section class="catalogo" id="catalogo">
-    <h2>Nuestros Productos</h2>
+            <!-- Accesorios -->
+            <div class="galeria" data-categoria="accesorios" style="display: none;">
+                <!-- Productos existentes -->
+                <div class="producto">
+                    <img src="assets/elefande brillante.jpg" alt="Ref:ACC001" />
+                    <p>Collar elefante brillante - $35.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20el%20Collar%20elefante%20brillante%20Ref:ACC001" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/pulseras pareja.jpg" alt="Ref:ACC002" />
+                    <p>Pulseras gamer para parejas - $35.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20las%20Pulseras%20gamer%20para%20parejas%20Ref:ACC002" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/cadena mariposa.jpg" alt="Ref:ACC003" />
+                    <p>Collar de mariposa - $35.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20el%20Collar%20de%20mariposa%20Ref:ACC003" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/cadena concha de mar.jpg" alt="Ref:ACC004" />
+                    <p>Collar concha de mar - $35.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20el%20Collar%20concha%20de%20mar%20Ref:ACC004" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/Pulsera letra.jpg" alt="Ref:ACC005" />
+                    <p>Pregunta por tu letra - $25.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20la%20Pulsera%20letra%20Ref:ACC005" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/luna.jpg" alt="Ref:ACC006" />
+                    <p>Collar de luna - $35.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20el%20Collar%20de%20luna%20Ref:ACC006" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/ejemplo.jpg" alt="Ref:ACC007" />
+                    <p>Descripción - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20el%20producto%20Ref:ACC007" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/ejemplo.jpg" alt="Ref:ACC008" />
+                    <p>Descripción - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20el%20producto%20Ref:ACC008" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/ejemplo.jpg" alt="Ref:ACC009" />
+                    <p>Descripción - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20el%20producto%20Ref:ACC009" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/ejemplo.jpg" alt="Ref:ACC010" />
+                    <p>Descripción - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20el%20producto%20Ref:ACC010" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
 
-    <!-- Categorías -->
-    <div class="categorias">
-      <button class="categoria-btn">Collares</button>
-      <button class="categoria-btn">Pulseras</button>
-      <button class="categoria-btn">Aretes</button>
-      <button class="categoria-btn">Anillos</button>
-    </div>
+                <!-- Plantillas adicionales -->
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:ACC011" />
+                    <p>Nombre producto 1 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%201%20Ref:ACC011" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:ACC012" />
+                    <p>Nombre producto 2 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%202%20Ref:ACC012" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:ACC013" />
+                    <p>Nombre producto 3 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%203%20Ref:ACC013" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:ACC014" />
+                    <p>Nombre producto 4 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%204%20Ref:ACC014" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:ACC015" />
+                    <p>Nombre producto 5 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%205%20Ref:ACC015" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:ACC016" />
+                    <p>Nombre producto 6 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%206%20Ref:ACC016" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:ACC017" />
+                    <p>Nombre producto 7 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%207%20Ref:ACC017" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:ACC018" />
+                    <p>Nombre producto 8 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%208%20Ref:ACC018" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:ACC019" />
+                    <p>Nombre producto 9 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%209%20Ref:ACC019" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:ACC020" />
+                    <p>Nombre producto 10 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%2010%20Ref:ACC020" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+            </div>
 
-    <!-- Galería -->
-    <div class="galeria">
-      <!-- 10 productos por categoría -->
-      <!-- Collares -->
-      <!-- Repite el siguiente bloque 10 veces por categoría, cambiando nombre, precio e imagen -->
-      <!-- Ejemplo: Collar 1 -->
-      <!-- Reemplaza "tuweb.com" con tu dominio real si está en línea -->
-      <!-- Collares -->
-      <!-- Cada producto incluye imagen, texto y enlace WhatsApp con imagen -->
-      
-      <!-- Collares -->
-      <!-- Productos del 1 al 10 -->
-      <!-- Pulseras -->
-      <!-- Productos del 1 al 10 -->
-      <!-- Aretes -->
-      <!-- Productos del 1 al 10 -->
-      <!-- Anillos -->
-      <!-- Productos del 1 al 10 -->
-      <!-- Todos generados abajo -->
-      
-      <!-- INICIO BLOQUE REPETIDO POR CATEGORÍA-->
-      <!-- Usa los nombres: collar1.jpg, pulsera1.jpg, etc. -->
-      <!-- Categoría: Collares -->
-      
-      
-<!-- Collares -->
-<!-- Generado automáticamente -->
-      
-      <!-- COLLARES -->
-      
-      <!-- Collar 1 -->
-      <div class="producto">
-        <img src="productos/collar1.jpg" alt="Collar 1" />
-        <p>Collar 1 - $20.000</p>
-        <a href="https://wa.me/573174715623?text=Hola%2C%20me%20interesa%20este%20producto%3A%20Collar%201%20-%20%2420.000%0Ahttps%3A%2F%2Ftuweb.com%2Fproductos%2Fcollar1.jpg" target="_blank" class="whatsapp-btn">Consultar</a>
-      </div>
-      <!-- Collar 2 al 10: cambia número en imagen, nombre y precio -->
-      <!-- Puedes repetir el bloque de arriba y cambiar datos -->
-      
-      <!-- Repite para las demás categorías: Pulseras, Aretes, Anillos -->
-      <!-- Puedo generar los 40 productos directamente si lo deseas -->
-    </div>
-  </section>
+            <!-- Detalles con Chocolate -->
+            <div class="galeria" data-categoria="detalles" style="display: none;">
+                <!-- Productos existentes -->
+                <div class="producto">
+                    <img src="assets/1.jpg" alt="Ref:19171" />
+                    <p>Con tarjeta personalizada - $65.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Con%20tarjeta%20personalizada%20Ref:19171" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/10.jpg" alt="Ref:19172" />
+                    <p>Mensaje personalizado - $35.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Mensaje%20personalizado%20Ref:19172" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/100.jpg" alt="Ref:19173" />
+                    <p>Caja con chocoreo + tarjeta personalizada - $37.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Caja%20con%20chocoreo%20%2B%20tarjeta%20personalizada%20Ref:19173" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/101.jpg" alt="Ref:19174" />
+                    <p>Con tarjeta personalizada - $46.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Con%20tarjeta%20personalizada%20Ref:19174" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/11.jpg" alt="Ref:19175" />
+                    <p>Chocolate con amor - $25.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Chocolate%20con%20amor%20Ref:19175" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/12.jpg" alt="Ref:19176" />
+                    <p>Regalo especial - $20.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Regalo%20especial%20Ref:19176" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/13.jpg" alt="Ref:19177" />
+                    <p>Chocolate personalizado - $33.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Chocolate%20personalizado%20Ref:19177" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/14.jpg" alt="Ref:19178" />
+                    <p>Mensaje sorpresa - $27.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Mensaje%20sorpresa%20Ref:19178" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/15.jpg" alt="Ref:19179" />
+                    <p>Especial día - $30.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Especial%20d%C3%ADa%20Ref:19179" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/16.jpg" alt="Ref:19180" />
+                    <p>Chocolate deluxe - $40.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Chocolate%20deluxe%20Ref:19180" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
 
-  <!-- Contacto -->
-  <section class="contacto" id="contacto">
-    <h2>Contacto</h2>
-    <p>¿Tienes dudas o quieres hacer un pedido personalizado? ¡Escríbenos!</p>
-    <a href="https://wa.me/573174715623" target="_blank" class="whatsapp-btn">Escribir por WhatsApp</a>
-  </section>
+                <!-- Plantillas adicionales -->
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:DET011" />
+                    <p>Nombre producto 1 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%201%20Ref:DET011" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:DET012" />
+                    <p>Nombre producto 2 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%202%20Ref:DET012" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:DET013" />
+                    <p>Nombre producto 3 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%203%20Ref:DET013" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:DET014" />
+                    <p>Nombre producto 4 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%204%20Ref:DET014" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:DET015" />
+                    <p>Nombre producto 5 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%205%20Ref:DET015" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:DET016" />
+                    <p>Nombre producto 6 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%206%20Ref:DET016" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:DET017" />
+                    <p>Nombre producto 7 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%207%20Ref:DET017" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:DET018" />
+                    <p>Nombre producto 8 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%208%20Ref:DET018" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:DET019" />
+                    <p>Nombre producto 9 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%209%20Ref:DET019" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:DET020" />
+                    <p>Nombre producto 10 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%2010%20Ref:DET020" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+            </div>
 
-  <!-- Pie de página -->
-  <footer>
-    <p>&copy; 2025 Macadamia Accesorios. Todos los derechos reservados.</p>
-  </footer>
+            <!-- Ramos Bouquet -->
+            <div class="galeria" data-categoria="ramos" style="display: none;">
+                <!-- Productos existentes -->
+                <div class="producto">
+                    <img src="assets/ramos-1.jpg" alt="Ref:RAM001" />
+                    <p>Ramo clásico - $70.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20el%20Ramo%20clásico%20Ref:RAM001" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/ramos-2.jpg" alt="Ref:RAM002" />
+                    <p>Ramo premium - $120.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20el%20Ramo%20premium%20Ref:RAM002" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <!-- (8 productos plantilla) -->
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:RAM003" />
+                    <p>Nombre producto 3 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%203%20Ref:RAM003" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:RAM004" />
+                    <p>Nombre producto 4 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%204%20Ref:RAM004" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:RAM005" />
+                    <p>Nombre producto 5 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%205%20Ref:RAM005" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:RAM006" />
+                    <p>Nombre producto 6 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%206%20Ref:RAM006" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:RAM007" />
+                    <p>Nombre producto 7 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%207%20Ref:RAM007" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:RAM008" />
+                    <p>Nombre producto 8 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%208%20Ref:RAM008" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:RAM009" />
+                    <p>Nombre producto 9 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%209%20Ref:RAM009" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:RAM010" />
+                    <p>Nombre producto 10 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%2010%20Ref:RAM010" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+            </div>
 
+            <!-- Cuadros Personalizados -->
+            <div class="galeria" data-categoria="cuadros" style="display: none;">
+                <!-- Productos existentes -->
+                <div class="producto">
+                    <img src="assets/cuadro1.jpg" alt="Ref:CUA001" />
+                    <p>Cuadro familiar personalizado - $150.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Cuadro%20familiar%20personalizado%20Ref:CUA001" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/cuadro2.jpg" alt="Ref:CUA002" />
+                    <p>Cuadro para parejas - $130.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Cuadro%20para%20parejas%20Ref:CUA002" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <!-- Plantillas adicionales (8) -->
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:CUA003" />
+                    <p>Nombre producto 3 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%203%20Ref:CUA003" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:CUA004" />
+                    <p>Nombre producto 4 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%204%20Ref:CUA004" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:CUA005" />
+                    <p>Nombre producto 5 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%205%20Ref:CUA005" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:CUA006" />
+                    <p>Nombre producto 6 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%206%20Ref:CUA006" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:CUA007" />
+                    <p>Nombre producto 7 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%207%20Ref:CUA007" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:CUA008" />
+                    <p>Nombre producto 8 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%208%20Ref:CUA008" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:CUA009" />
+                    <p>Nombre producto 9 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%209%20Ref:CUA009" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:CUA010" />
+                    <p>Nombre producto 10 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%2010%20Ref:CUA010" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+            </div>
+
+            <!-- Accesorios Macadamia -->
+            <div class="galeria" data-categoria="accesorios" style="display: none;">
+                <!-- Productos existentes -->
+                <div class="producto">
+                    <img src="assets/accesorio1.jpg" alt="Ref:ACC001" />
+                    <p>Aretes Macadamia - $45.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Aretes%20Macadamia%20Ref:ACC001" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/accesorio2.jpg" alt="Ref:ACC002" />
+                    <p>Collar Macadamia - $55.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Collar%20Macadamia%20Ref:ACC002" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <!-- Plantillas adicionales (8) -->
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:ACC003" />
+                    <p>Nombre producto 3 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%203%20Ref:ACC003" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:ACC004" />
+                    <p>Nombre producto 4 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%204%20Ref:ACC004" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:ACC005" />
+                    <p>Nombre producto 5 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%205%20Ref:ACC005" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:ACC006" />
+                    <p>Nombre producto 6 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%206%20Ref:ACC006" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:ACC007" />
+                    <p>Nombre producto 7 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%207%20Ref:ACC007" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:ACC008" />
+                    <p>Nombre producto 8 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%208%20Ref:ACC008" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:ACC009" />
+                    <p>Nombre producto 9 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%209%20Ref:ACC009" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+                <div class="producto">
+                    <img src="assets/placeholder.jpg" alt="Ref:ACC010" />
+                    <p>Nombre producto 10 - $00.000</p>
+                    <a href="https://wa.me/573174715623?text=Estoy%20interesado%20en%20Nombre%20producto%2010%20Ref:ACC010" target="_blank" class="btn-whatsapp">Comprar</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Macadamia Accesorios. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
 </body>
+
 </html>
