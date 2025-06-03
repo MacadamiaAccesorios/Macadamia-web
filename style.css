@@ -1,197 +1,121 @@
-/* Fuente base moderna */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
-
-* {
-    box-sizing: border-box;
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
 }
 
-body {
-    background-color: #fff;
-    color: #333;
-    line-height: 1.6;
-}
-
-/* Encabezado */
 header {
-    background-color: #ffb6b9;
-    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 1em;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ccc;
 }
 
 .logo {
     height: 60px;
-    border-radius: 12px;
 }
 
-/* Navegación */
 nav ul {
-    display: flex;
     list-style: none;
-    gap: 1.5rem;
+    display: flex;
+    gap: 1em;
+    margin: 0;
+    padding: 0;
 }
 
-nav a {
+nav ul li a {
     text-decoration: none;
-    color: #fff;
-    font-weight: 500;
-    transition: color 0.3s;
+    color: #333;
+    font-weight: bold;
 }
 
-nav a:hover {
-    color: #6b0f1a;
-}
-
-/* Hero */
 .hero {
-    background: linear-gradient(to bottom, #fff0f3, #ffe3e7);
-    padding: 4rem 2rem;
     text-align: center;
+    padding: 2em;
+    background-color: #ffe8f0;
 }
 
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: #ff4d6d;
+.catalogo .contenedor {
+    padding: 2em;
 }
 
-.hero p {
-    font-size: 1.2rem;
-    color: #444;
-}
-
-/* Catálogo */
-.catalogo {
-    padding: 3rem 2rem;
-    background-color: #fefefe;
-}
-
-.catalogo h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 2rem;
-    color: #ff4d6d;
-}
-
-/* Botones de categoría */
 .categorias {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
+    gap: 1em;
+    margin-bottom: 2em;
 }
 
 .categoria-btn {
-    background-color: #ff4d6d;
-    color: #fff;
+    padding: 0.5em 1em;
+    background-color: #f2c1d1;
     border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
-    font-weight: 500;
-    transition: background-color 0.3s;
+    font-weight: bold;
 }
 
-.categoria-btn:hover {
-    background-color: #d6336c;
-}
-
-/* Galerías */
 .galeria {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
+    gap: 1em;
 }
 
 .producto {
-    background-color: #fff0f3;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background-color: #fff;
+    border: 1px solid #eee;
+    padding: 1em;
     text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.producto:hover {
-    transform: scale(1.03);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .producto img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-bottom: 1px solid #f6c1c9;
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
 }
 
 .producto p {
-    padding: 0.75rem;
-    font-size: 0.95rem;
-    color: #333;
+    margin: 0.5em 0;
 }
 
-/* Contacto */
-.contacto {
-    padding: 3rem 2rem;
-    text-align: center;
-    background-color: #ffeef0;
+/* Botón de WhatsApp individual por producto */
+.whatsapp-producto {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 6px 12px;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.whatsapp-producto:hover {
+    background-color: #1ebe5b;
 }
 
-.contacto h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #ff4d6d;
-}
-
-.contacto p {
-    color: #555;
-    font-size: 1.1rem;
-}
-
-/* Botón flotante de WhatsApp */
+/* Botón flotante general de WhatsApp */
 .whatsapp-button {
     position: fixed;
     bottom: 20px;
     right: 20px;
     background-color: #25D366;
     color: white;
-    font-size: 28px;
+    font-size: 1.5em;
+    padding: 0.6em 0.8em;
     border-radius: 50%;
-    padding: 14px;
-    text-align: center;
     text-decoration: none;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    z-index: 1000;
-    transition: transform 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
-
 .whatsapp-button:hover {
-    transform: scale(1.1);
+    background-color: #1ebe5b;
 }
 
-/* Responsive ajustes */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        gap: 1rem;
-        margin-top: 1rem;
-    }
-
-    .logo {
-        margin-bottom: 1rem;
-    }
-
-    .categoria-btn {
-        flex: 1 1 45%;
-    }
+.contacto {
+    text-align: center;
+    padding: 2em;
+    background-color: #f7f7f7;
 }
