@@ -34,67 +34,36 @@
         <button class="categoria-btn" data-categoria="juguetes">Juguetes para Adultos</button>
       </div>
 
-      <!-- Categorías con productos plantilla -->
+      <!-- Accesorios -->
       <div class="galeria" data-categoria="accesorios" style="display: none;">
-        <!-- Repite este bloque por producto -->
-        <!-- Producto plantilla (reemplazar imagen, nombre y precio) -->
-        <!-- 10 productos -->
-        ${Array.from({ length: 10 }).map((_, i) => `
-          <div class="producto">
-            <img src="assets/elefande brillante${i + 1}.jpg" alt="Producto Accesorio ${i + 1}">
-            <p>Collar elefante dorado ${i + 1} - $35.000</p>
-            <a href="#" class="whatsapp-producto">WhatsApp</a>
-            <button class="agregar-carrito">🛒 Agregar</button>
-          </div>`).join('')}
+        <div class="producto">
+          <img src="assets/elefande brillante.jpg" alt="Ref:ACC001">
+          <p>Collar elefante brillante - $35.000</p>
+          <a href="#" class="whatsapp-producto">Comprar por WhatsApp</a>
+          <button class="add-to-cart" data-producto="Collar elefante brillante - $35.000">🛒</button>
+        </div>
+        <!-- Más productos aquí -->
       </div>
 
+      <!-- Detalles con Chocolate -->
       <div class="galeria" data-categoria="detalles" style="display: none;">
-        ${Array.from({ length: 10 }).map((_, i) => `
-          <div class="producto">
-            <img src="assets/producto-detalle${i + 1}.jpg" alt="Detalle ${i + 1}">
-            <p>Detalle con Chocolate ${i + 1} - $00.000</p>
-            <a href="#" class="whatsapp-producto">WhatsApp</a>
-            <button class="agregar-carrito">🛒 Agregar</button>
-          </div>`).join('')}
+        <div class="producto">
+          <img src="assets/1.jpg" alt="Ref:19171">
+          <p>Con tarjeta personalizada - $65.000</p>
+          <a href="#" class="whatsapp-producto">Comprar por WhatsApp</a>
+          <button class="add-to-cart" data-producto="Con tarjeta personalizada - $65.000">🛒</button>
+        </div>
+        <!-- Más productos aquí -->
       </div>
 
-      <div class="galeria" data-categoria="ramos" style="display: none;">
-        ${Array.from({ length: 10 }).map((_, i) => `
-          <div class="producto">
-            <img src="assets/producto-ramo${i + 1}.jpg" alt="Ramo ${i + 1}">
-            <p>Ramo Bouquet ${i + 1} - $00.000</p>
-            <a href="#" class="whatsapp-producto">WhatsApp</a>
-            <button class="agregar-carrito">🛒 Agregar</button>
-          </div>`).join('')}
-      </div>
-
-      <div class="galeria" data-categoria="cuadros" style="display: none;">
-        ${Array.from({ length: 10 }).map((_, i) => `
-          <div class="producto">
-            <img src="assets/producto-cuadro${i + 1}.jpg" alt="Cuadro ${i + 1}">
-            <p>Cuadro Personalizado ${i + 1} - $00.000</p>
-            <a href="#" class="whatsapp-producto">WhatsApp</a>
-            <button class="agregar-carrito">🛒 Agregar</button>
-          </div>`).join('')}
-      </div>
-
-      <div class="galeria" data-categoria="juguetes" style="display: none;">
-        ${Array.from({ length: 10 }).map((_, i) => `
-          <div class="producto">
-            <img src="assets/producto-juguete${i + 1}.jpg" alt="Juguete ${i + 1}">
-            <p>Juguete para Adultos ${i + 1} - $00.000</p>
-            <a href="#" class="whatsapp-producto">WhatsApp</a>
-            <button class="agregar-carrito">🛒 Agregar</button>
-          </div>`).join('')}
-      </div>
     </div>
   </section>
 
-  <!-- Carrito flotante -->
-  <div id="carrito-flotante">
-    <h3>🛍️ Tu Carrito</h3>
-    <ul id="carrito-lista"></ul>
-    <button id="finalizar-compra">Finalizar compra</button>
+  <!-- Carrito de compras -->
+  <div id="carrito">
+    <h3>🛒 Tu carrito</h3>
+    <ul></ul>
+    <button class="vaciar">Vaciar carrito</button>
   </div>
 
   <section id="contacto" class="contacto">
@@ -102,8 +71,72 @@
     <p>¡Escríbenos por WhatsApp para pedidos o dudas!</p>
   </section>
 
+  <!-- Botón flotante general de WhatsApp -->
   <a href="https://wa.me/573174715623" class="whatsapp-button" target="_blank">💬</a>
 
-  <script src="script.js"></script>
+  <script>
+    // Mostrar categorías
+    const botones = document.querySelectorAll(".categoria-btn");
+    const galerias = document.querySelectorAll(".galeria");
+
+    botones.forEach(boton => {
+      boton.addEventListener("click", () => {
+        const categoriaSeleccionada = boton.dataset.categoria;
+        galerias.forEach(galeria => {
+          galeria.style.display = galeria.dataset.categoria === categoriaSeleccionada ? "grid" : "none";
+        });
+      });
+    });
+
+    // Enviar producto por WhatsApp
+    const numeroWhatsApp = '573174715623';
+    document.querySelectorAll('.whatsapp-producto').forEach(boton => {
+      boton.addEventListener('click', function (e) {
+        e.preventDefault();
+        const producto = this.closest('.producto');
+        const nombre = producto.querySelector('p').innerText;
+        const imagen = producto.querySelector('img').src;
+        const mensaje = ¡Hola! Estoy interesada en este producto:\n*${nombre}*\nImagen: ${imagen};
+        const url = https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)};
+        window.open(url, '_blank');
+      });
+    });
+
+    // Carrito de compras
+    document.addEventListener('DOMContentLoaded', () => {
+      const botonesAgregar = document.querySelectorAll('.add-to-cart');
+      const listaCarrito = document.querySelector('#carrito ul');
+      const botonVaciar = document.querySelector('#carrito .vaciar');
+      const contenedorCarrito = document.getElementById('carrito');
+      const carrito = [];
+
+      botonesAgregar.forEach(boton => {
+        boton.addEventListener('click', () => {
+          const producto = boton.getAttribute('data-producto');
+          carrito.push(producto);
+          actualizarCarrito();
+        });
+      });
+
+      botonVaciar.addEventListener('click', () => {
+        carrito.length = 0;
+        actualizarCarrito();
+      });
+
+      function actualizarCarrito() {
+        listaCarrito.innerHTML = '';
+        if (carrito.length === 0) {
+          contenedorCarrito.style.display = 'none';
+          return;
+        }
+        contenedorCarrito.style.display = 'block';
+        carrito.forEach(item => {
+          const li = document.createElement('li');
+          li.textContent = item;
+          listaCarrito.appendChild(li);
+        });
+      }
+    });
+  </script>
 </body>
 </html>
