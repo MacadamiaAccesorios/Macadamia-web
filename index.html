@@ -18,11 +18,18 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
       border-radius: 8px;
     }
+    .logo {
+      width: 180px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.4));
+    }
   </style>
 </head>
 <body>
   <header>
-    <img src="assets/logo.jpeg" alt="Macadamia Logo" class="logo" />
+    <img src="assets/logo.png" alt="Macadamia Logo" class="logo" />
     <nav>
       <ul>
         <li><a href="#inicio">Inicio</a></li>
@@ -48,30 +55,26 @@
         <button class="categoria-btn" data-categoria="juguetes">Juguetes para Adultos</button>
       </div>
 
-      <!-- Accesorios -->
-      <div class="galeria" data-categoria="accesorios" style="display: none;">
+      <div class="galeria" data-categoria="accesorios">
         <div class="producto">
           <img src="assets/elefande brillante.jpg" alt="Ref:ACC001">
-          <p>Collar elefante brillante - $35.000</p>
+          <p>Ref: ACC001 - Collar elefante brillante - $35.000</p>
           <a href="#" class="whatsapp-producto">Comprar por WhatsApp</a>
-          <button class="add-to-cart" data-producto="Collar elefante brillante - $35.000">🛒</button>
+          <button class="add-to-cart" data-producto="Ref: ACC001 - Collar elefante brillante - $35.000">🛒</button>
         </div>
       </div>
 
-      <!-- Detalles con Chocolate -->
-      <div class="galeria" data-categoria="detalles" style="display: none;">
+      <div class="galeria" data-categoria="detalles">
         <div class="producto">
           <img src="assets/1.jpg" alt="Ref:19171">
-          <p>Con tarjeta personalizada - $65.000</p>
+          <p>Ref: 19171 - Con tarjeta personalizada - $65.000</p>
           <a href="#" class="whatsapp-producto">Comprar por WhatsApp</a>
-          <button class="add-to-cart" data-producto="Con tarjeta personalizada - $65.000">🛒</button>
+          <button class="add-to-cart" data-producto="Ref: 19171 - Con tarjeta personalizada - $65.000">🛒</button>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- Carrito de compras -->
   <div id="carrito">
     <h3>🛒 Tu carrito</h3>
     <ul></ul>
@@ -81,9 +84,15 @@
   <section id="contacto" class="contacto">
     <h2>Contáctanos</h2>
     <p>¡Escríbenos por WhatsApp para pedidos o dudas!</p>
+    <p>WhatsApp: 3174715623 / 3182142910</p>
+    <p>Síguenos en redes:</p>
+    <ul>
+      <li>Instagram: <a href="https://instagram.com/macadamiaaccesories" target="_blank">@macadamiaaccesories</a></li>
+      <li>Facebook: <a href="https://facebook.com/MacadamiaAccesories" target="_blank">Macadamia Accesories</a></li>
+      <li>TikTok: <a href="https://tiktok.com/@accesorios_popayan" target="_blank">@accesorios_popayan</a></li>
+    </ul>
   </section>
 
-  <!-- Botón flotante general de WhatsApp -->
   <a href="https://wa.me/573174715623" class="whatsapp-button" target="_blank">💬</a>
 
   <script>
@@ -154,7 +163,6 @@
         img.addEventListener('click', () => {
           const producto = img.closest('.producto');
           const nombre = producto.querySelector('p').innerText;
-          const imagen = img.src;
           alert(`Detalles del producto:\n${nombre}`);
         });
       });
