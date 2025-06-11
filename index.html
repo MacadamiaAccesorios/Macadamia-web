@@ -2,10 +2,9 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Macadamia Accesorios</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     #carrito {
       position: fixed;
@@ -16,41 +15,47 @@
       padding: 1em;
       display: none;
       z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
       border-radius: 8px;
     }
     .modal {
-      display: none;
       position: fixed;
-      z-index: 2000;
-      left: 0;
       top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.5);
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
     }
     .modal-content {
-      background-color: #fff;
-      margin: 10% auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 90%;
-      max-width: 500px;
-      border-radius: 8px;
+      background: white;
+      padding: 2em;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 90%;
     }
-    .close {
-      color: #aaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
+    .modal-content img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 1em;
+    }
+    .modal-close {
+      background: #c00;
+      color: white;
+      border: none;
+      padding: 0.5em 1em;
       cursor: pointer;
+      border-radius: 5px;
     }
-    .close:hover,
-    .close:focus {
-      color: black;
+    .social-icons a {
+      margin: 0 10px;
+      font-size: 1.5em;
     }
   </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
@@ -79,22 +84,25 @@
   <section id="catalogo" class="catalogo">
     <div class="contenedor">
       <h2>Catálogo de Productos</h2>
-      <!-- Categorías completas aquí, como ya las tenías con todos los productos -->
-      <!-- Por brevedad, aquí iría el HTML de todos los productos divididos por data-categoria -->
+      <div class="galeria" data-categoria="accesorios">
+        <div class="producto">
+          <img src="assets/elefande brillante.jpg" alt="Ref:ACC001">
+          <p>Ref: ACC001<br>Collar elefante brillante - $35.000</p>
+          <a href="#" class="whatsapp-producto">Comprar por WhatsApp</a>
+          <button class="add-to-cart" data-producto="Collar elefante brillante - $35.000">🛒</button>
+        </div>
+      </div>
+      <div class="galeria" data-categoria="detalles">
+        <div class="producto">
+          <img src="assets/1.jpg" alt="Ref:19171">
+          <p>Ref: 19171<br>Con tarjeta personalizada - $65.000</p>
+          <a href="#" class="whatsapp-producto">Comprar por WhatsApp</a>
+          <button class="add-to-cart" data-producto="Con tarjeta personalizada - $65.000">🛒</button>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Modal para detalles -->
-  <div id="modalProducto" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h3 id="modalTitulo"></h3>
-      <img id="modalImagen" src="" alt="" style="max-width:100%; border-radius: 8px;" />
-      <p id="modalDescripcion"></p>
-    </div>
-  </div>
-
-  <!-- Carrito de compras -->
   <div id="carrito">
     <h3>🛒 Tu carrito</h3>
     <ul></ul>
@@ -103,13 +111,23 @@
 
   <section id="contacto" class="contacto">
     <h2>Contáctanos</h2>
-    <p><i class="fab fa-whatsapp"></i> WhatsApp: 3174715623 / 3182142910</p>
-    <p><i class="fab fa-instagram"></i> Instagram: <a href="https://instagram.com/macadamiaaccesories" target="_blank">@macadamiaaccesories</a></p>
-    <p><i class="fab fa-facebook"></i> Facebook: <a href="https://facebook.com/MacadamiaAccesories" target="_blank">Macadamia Accesories</a></p>
-    <p><i class="fab fa-tiktok"></i> TikTok: <a href="https://www.tiktok.com/@accesorios_popayan" target="_blank">@accesorios_popayan</a></p>
+    <p>WhatsApp: 3174715623 / 3182142910</p>
+    <div class="social-icons">
+      <a href="https://instagram.com/macadamiaaccesories" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com/MacadamiaAccesories" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://tiktok.com/@accesorios_popayan" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
   </section>
 
   <a href="https://wa.me/573174715623" class="whatsapp-button" target="_blank">💬</a>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <img src="" alt="Producto" id="modal-img">
+      <p id="modal-info"></p>
+      <button class="modal-close">Cerrar</button>
+    </div>
+  </div>
 
   <script>
     const numeroWhatsApp = '573174715623';
@@ -145,13 +163,10 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      const botones = document.querySelectorAll(".categoria-btn");
-      const galerias = document.querySelectorAll(".galeria");
-
-      botones.forEach(boton => {
+      document.querySelectorAll(".categoria-btn").forEach(boton => {
         boton.addEventListener("click", () => {
           const categoriaSeleccionada = boton.dataset.categoria;
-          galerias.forEach(galeria => {
+          document.querySelectorAll(".galeria").forEach(galeria => {
             galeria.style.display = galeria.dataset.categoria === categoriaSeleccionada ? "grid" : "none";
           });
           inicializarBotones();
@@ -175,39 +190,23 @@
         actualizarCarrito();
       });
 
-      // Modal de producto
-      const modal = document.getElementById("modalProducto");
-      const modalImg = document.getElementById("modalImagen");
-      const modalTitulo = document.getElementById("modalTitulo");
-      const modalDescripcion = document.getElementById("modalDescripcion");
-      const closeModal = document.querySelector(".close");
-
       document.querySelectorAll('.producto img').forEach(img => {
         img.addEventListener('click', () => {
           const producto = img.closest('.producto');
           const nombre = producto.querySelector('p').innerText;
           const imagen = img.src;
-
-          modalTitulo.textContent = nombre;
-          modalImg.src = imagen;
-          modalDescripcion.textContent = "Referencia: " + producto.querySelector('img').alt;
-
-          modal.style.display = "block";
+          document.getElementById('modal-img').src = imagen;
+          document.getElementById('modal-info').textContent = nombre;
+          document.getElementById('modal').style.display = 'flex';
         });
       });
 
-      closeModal.onclick = function () {
-        modal.style.display = "none";
-      }
-      window.onclick = function (event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      }
+      document.querySelector('.modal-close').addEventListener('click', () => {
+        document.getElementById('modal').style.display = 'none';
+      });
 
       inicializarBotones();
     });
   </script>
 </body>
 </html>
-
