@@ -6,6 +6,74 @@
   <title>Macadamia Accesorios</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .logo {
+      height: 80px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    .hero {
+      padding: 60px 20px;
+      text-align: center;
+      background-color: #fce4ec;
+    }
+    .catalogo .contenedor {
+      padding: 40px 20px;
+    }
+    .categorias {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .categoria-btn {
+      padding: 10px 20px;
+      background-color: #e91e63;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .galeria {
+      display: none;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .producto {
+      background-color: #fff;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .producto img {
+      max-width: 100%;
+      cursor: pointer;
+    }
+    .producto p {
+      margin: 5px 0;
+    }
     #carrito {
       position: fixed;
       top: 80px;
@@ -18,12 +86,18 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
       border-radius: 8px;
     }
-    .logo {
-      width: 180px;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-      filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.4));
+    .contacto {
+      padding: 40px 20px;
+      background-color: #f3f3f3;
+      text-align: center;
+    }
+    .redes-sociales a {
+      margin: 0 10px;
+      display: inline-block;
+    }
+    .redes-sociales img {
+      width: 30px;
+      height: 30px;
     }
   </style>
 </head>
@@ -42,36 +116,32 @@
   <section id="inicio" class="hero">
     <h1>Bienvenidos a Macadamia Accesorios</h1>
     <p>Joyas y detalles que brillan contigo.</p>
+    <div class="categorias">
+      <button class="categoria-btn" data-categoria="accesorios">Accesorios</button>
+      <button class="categoria-btn" data-categoria="detalles">Detalles con Chocolate</button>
+      <button class="categoria-btn" data-categoria="ramos">Ramos Bouquet</button>
+      <button class="categoria-btn" data-categoria="cuadros">Cuadros Personalizados</button>
+      <button class="categoria-btn" data-categoria="juguetes">Juguetes para Adultos</button>
+    </div>
   </section>
 
   <section id="catalogo" class="catalogo">
     <div class="contenedor">
-      <h2>Categorías</h2>
-      <div class="categorias">
-        <button class="categoria-btn" data-categoria="accesorios">Accesorios</button>
-        <button class="categoria-btn" data-categoria="detalles">Detalles con Chocolate</button>
-        <button class="categoria-btn" data-categoria="ramos">Ramos Bouquet</button>
-        <button class="categoria-btn" data-categoria="cuadros">Cuadros Personalizados</button>
-        <button class="categoria-btn" data-categoria="juguetes">Juguetes para Adultos</button>
-      </div>
+      <h2>Catálogo de Productos</h2>
 
-      <div class="galeria" data-categoria="accesorios">
+      <!-- Categoría ejemplo -->
+      <h3>Accesorios</h3>
+      <div class="galeria" style="display: grid;">
         <div class="producto">
           <img src="assets/elefande brillante.jpg" alt="Ref:ACC001">
-          <p>Ref: ACC001 - Collar elefante brillante - $35.000</p>
+          <p><strong>Ref: ACC001</strong></p>
+          <p>Collar elefante brillante - $35.000</p>
           <a href="#" class="whatsapp-producto">Comprar por WhatsApp</a>
-          <button class="add-to-cart" data-producto="Ref: ACC001 - Collar elefante brillante - $35.000">🛒</button>
+          <button class="add-to-cart" data-producto="Collar elefante brillante - $35.000">🛒</button>
         </div>
       </div>
 
-      <div class="galeria" data-categoria="detalles">
-        <div class="producto">
-          <img src="assets/1.jpg" alt="Ref:19171">
-          <p>Ref: 19171 - Con tarjeta personalizada - $65.000</p>
-          <a href="#" class="whatsapp-producto">Comprar por WhatsApp</a>
-          <button class="add-to-cart" data-producto="Ref: 19171 - Con tarjeta personalizada - $65.000">🛒</button>
-        </div>
-      </div>
+      <!-- Agrega más categorías y productos similares -->
     </div>
   </section>
 
@@ -83,21 +153,21 @@
 
   <section id="contacto" class="contacto">
     <h2>Contáctanos</h2>
-    <p>¡Escríbenos por WhatsApp para pedidos o dudas!</p>
-    <p>WhatsApp: 3174715623 / 3182142910</p>
-    <p>Síguenos en redes:</p>
-    <ul>
-      <li>Instagram: <a href="https://instagram.com/macadamiaaccesories" target="_blank">@macadamiaaccesories</a></li>
-      <li>Facebook: <a href="https://facebook.com/MacadamiaAccesories" target="_blank">Macadamia Accesories</a></li>
-      <li>TikTok: <a href="https://tiktok.com/@accesorios_popayan" target="_blank">@accesorios_popayan</a></li>
-    </ul>
+    <p>Escríbenos por WhatsApp:</p>
+    <p><a href="https://wa.me/573174715623">3174715623</a> | <a href="https://wa.me/573182142910">3182142910</a></p>
+    <div class="redes-sociales">
+      <p>Síguenos:</p>
+      <a href="https://instagram.com/macadamiaaccesories" target="_blank"><img src="assets/instagram.png" alt="Instagram"></a>
+      <a href="https://facebook.com/MacadamiaAccesories" target="_blank"><img src="assets/facebook.png" alt="Facebook"></a>
+      <a href="https://www.tiktok.com/@accesorios_popayan" target="_blank"><img src="assets/tiktok.png" alt="TikTok"></a>
+    </div>
   </section>
 
   <a href="https://wa.me/573174715623" class="whatsapp-button" target="_blank">💬</a>
 
   <script>
-    const numeroWhatsApp = '573174715623';
     const carrito = [];
+    const numeroWhatsApp = '573174715623';
 
     function actualizarCarrito() {
       const listaCarrito = document.querySelector('#carrito ul');
@@ -115,6 +185,12 @@
       });
     }
 
+    function agregarAlCarrito(e) {
+      const producto = e.target.getAttribute('data-producto');
+      carrito.push(producto);
+      actualizarCarrito();
+    }
+
     function inicializarBotones() {
       document.querySelectorAll('.add-to-cart').forEach(boton => {
         boton.removeEventListener('click', agregarAlCarrito);
@@ -122,23 +198,15 @@
       });
     }
 
-    function agregarAlCarrito(e) {
-      const producto = e.target.getAttribute('data-producto');
-      carrito.push(producto);
-      actualizarCarrito();
-    }
-
     document.addEventListener('DOMContentLoaded', () => {
-      const botones = document.querySelectorAll(".categoria-btn");
-      const galerias = document.querySelectorAll(".galeria");
-
-      botones.forEach(boton => {
-        boton.addEventListener("click", () => {
-          const categoriaSeleccionada = boton.dataset.categoria;
-          galerias.forEach(galeria => {
-            galeria.style.display = galeria.dataset.categoria === categoriaSeleccionada ? "grid" : "none";
+      document.querySelectorAll('.categoria-btn').forEach(boton => {
+        boton.addEventListener('click', () => {
+          const categoria = boton.dataset.categoria;
+          document.querySelectorAll('.galeria').forEach(galeria => {
+            galeria.style.display = 'none';
           });
-          inicializarBotones();
+          const galeria = document.querySelector(`.galeria[data-categoria="${categoria}"]`);
+          if (galeria) galeria.style.display = 'grid';
         });
       });
 
@@ -146,7 +214,7 @@
         boton.addEventListener('click', function (e) {
           e.preventDefault();
           const producto = this.closest('.producto');
-          const nombre = producto.querySelector('p').innerText;
+          const nombre = producto.querySelector('p:nth-of-type(2)').innerText;
           const imagen = producto.querySelector('img').src;
           const mensaje = `¡Hola! Estoy interesada en este producto:\n*${nombre}*\nImagen: ${imagen}`;
           const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
@@ -162,7 +230,7 @@
       document.querySelectorAll('.producto img').forEach(img => {
         img.addEventListener('click', () => {
           const producto = img.closest('.producto');
-          const nombre = producto.querySelector('p').innerText;
+          const nombre = producto.querySelector('p:nth-of-type(2)').innerText;
           alert(`Detalles del producto:\n${nombre}`);
         });
       });
