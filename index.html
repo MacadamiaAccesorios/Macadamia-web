@@ -6,23 +6,51 @@
   <title>Macadamia Accesorios</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    .logo {
+      height: 80px;
+      background-color: transparent;
+    }
     #carrito {
       position: fixed;
       top: 80px;
       right: 20px;
-      background: #fff;
+      background-color: white;
       border: 1px solid #ccc;
-      padding: 1em;
+      padding: 10px;
       display: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .producto p span {
+      display: block;
+    }
+    .producto img {
+      cursor: pointer;
+    }
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1001;
+    }
+    .modal-content {
+      background: white;
+      padding: 20px;
+      max-width: 400px;
       border-radius: 8px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="assets/logo.jpeg" alt="Macadamia Logo" class="logo" />
+    <img src="assets/logo.png" alt="Macadamia Logo" class="logo" />
     <nav>
       <ul>
         <li><a href="#inicio">Inicio</a></li>
@@ -49,29 +77,27 @@
       </div>
 
       <!-- Accesorios -->
-      <div class="galeria" data-categoria="accesorios" style="display: none;">
+      <div class="galeria" data-categoria="accesorios">
         <div class="producto">
           <img src="assets/elefande brillante.jpg" alt="Ref:ACC001">
-          <p>Collar elefante brillante - $35.000</p>
+          <p><span>Ref: ACC001</span><span>Collar elefante brillante</span><span>$35.000</span></p>
           <a href="#" class="whatsapp-producto">Comprar por WhatsApp</a>
-          <button class="add-to-cart" data-producto="Collar elefante brillante - $35.000">🛒</button>
+          <button class="add-to-cart" data-producto="Ref:ACC001 - Collar elefante brillante - $35.000">🛒</button>
         </div>
       </div>
 
       <!-- Detalles con Chocolate -->
-      <div class="galeria" data-categoria="detalles" style="display: none;">
+      <div class="galeria" data-categoria="detalles">
         <div class="producto">
-          <img src="assets/1.jpg" alt="Ref:19171">
-          <p>Con tarjeta personalizada - $65.000</p>
+          <img src="assets/1.jpg" alt="Ref:DET001">
+          <p><span>Ref: DET001</span><span>Con tarjeta personalizada</span><span>$65.000</span></p>
           <a href="#" class="whatsapp-producto">Comprar por WhatsApp</a>
-          <button class="add-to-cart" data-producto="Con tarjeta personalizada - $65.000">🛒</button>
+          <button class="add-to-cart" data-producto="Ref:DET001 - Con tarjeta personalizada - $65.000">🛒</button>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- Carrito de compras -->
   <div id="carrito">
     <h3>🛒 Tu carrito</h3>
     <ul></ul>
@@ -80,25 +106,69 @@
 
   <section id="contacto" class="contacto">
     <h2>Contáctanos</h2>
-    <p>¡Escríbenos por WhatsApp para pedidos o dudas!</p>
+    <p>WhatsApp: 3174715623 | 3182142910</p>
+    <p>Síguenos en nuestras redes:</p>
+    <ul>
+      <li>Instagram: <a href="https://instagram.com/macadamiaaccesories" target="_blank">@macadamiaaccesories</a></li>
+      <li>Facebook: <a href="https://facebook.com/MacadamiaAccesories" target="_blank">Macadamia Accesories</a></li>
+      <li>TikTok: <a href="https://tiktok.com/@accesorios_popayan" target="_blank">@accesorios_popayan</a></li>
+    </ul>
   </section>
 
-  <!-- Botón flotante general de WhatsApp -->
   <a href="https://wa.me/573174715623" class="whatsapp-button" target="_blank">💬</a>
 
   <script>
-    const numeroWhatsApp = '573174715623';
+    const botones = document.querySelectorAll(".categoria-btn");
+    const galerias = document.querySelectorAll(".galeria");
+
+    botones.forEach(boton => {
+      boton.addEventListener("click", () => {
+        const categoriaSeleccionada = boton.dataset.categoria;
+        galerias.forEach(galeria => {
+          galeria.style.display = galeria.dataset.categoria === categoriaSeleccionada ? "grid" : "none";
+        });
+        setTimeout(asignarEventosAgregar, 0);
+      });
+    });
+
+    document.querySelectorAll('.whatsapp-producto').forEach(boton => {
+      boton.addEventListener('click', function (e) {
+        e.preventDefault();
+        const producto = this.closest('.producto');
+        const nombre = producto.querySelector('p').innerText;
+        const imagen = producto.querySelector('img').src;
+        const mensaje = `¡Hola! Estoy interesada en este producto:\n*${nombre}*\nImagen: ${imagen}`;
+        const url = `https://wa.me/573174715623?text=${encodeURIComponent(mensaje)}`;
+        window.open(url, '_blank');
+      });
+    });
+
     const carrito = [];
+    const listaCarrito = document.querySelector('#carrito ul');
+    const botonVaciar = document.querySelector('#carrito .vaciar');
+    const contenedorCarrito = document.getElementById('carrito');
+
+    function asignarEventosAgregar() {
+      document.querySelectorAll('.add-to-cart').forEach(boton => {
+        boton.removeEventListener('click', agregarAlCarrito);
+        boton.addEventListener('click', agregarAlCarrito);
+      });
+    }
+
+    function agregarAlCarrito() {
+      const producto = this.getAttribute('data-producto');
+      carrito.push(producto);
+      actualizarCarrito();
+    }
+
+    botonVaciar.addEventListener('click', () => {
+      carrito.length = 0;
+      actualizarCarrito();
+    });
 
     function actualizarCarrito() {
-      const listaCarrito = document.querySelector('#carrito ul');
-      const contenedorCarrito = document.getElementById('carrito');
       listaCarrito.innerHTML = '';
-      if (carrito.length === 0) {
-        contenedorCarrito.style.display = 'none';
-        return;
-      }
-      contenedorCarrito.style.display = 'block';
+      contenedorCarrito.style.display = carrito.length ? 'block' : 'none';
       carrito.forEach(item => {
         const li = document.createElement('li');
         li.textContent = item;
@@ -106,61 +176,23 @@
       });
     }
 
-    function inicializarBotones() {
-      document.querySelectorAll('.add-to-cart').forEach(boton => {
-        boton.removeEventListener('click', agregarAlCarrito);
-        boton.addEventListener('click', agregarAlCarrito);
+    // Modal al hacer clic en imagen del producto
+    document.querySelectorAll('.producto img').forEach(img => {
+      img.addEventListener('click', () => {
+        const producto = img.closest('.producto');
+        const descripcion = producto.querySelector('p').innerHTML;
+        const modal = document.createElement('div');
+        modal.classList.add('modal');
+        modal.innerHTML = `<div class="modal-content">
+                              <img src="${img.src}" style="width:100%; border-radius:8px;">
+                              <p>${descripcion}</p>
+                              <button onclick="this.closest('.modal').remove()">Cerrar</button>
+                            </div>`;
+        document.body.appendChild(modal);
       });
-    }
-
-    function agregarAlCarrito(e) {
-      const producto = e.target.getAttribute('data-producto');
-      carrito.push(producto);
-      actualizarCarrito();
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const botones = document.querySelectorAll(".categoria-btn");
-      const galerias = document.querySelectorAll(".galeria");
-
-      botones.forEach(boton => {
-        boton.addEventListener("click", () => {
-          const categoriaSeleccionada = boton.dataset.categoria;
-          galerias.forEach(galeria => {
-            galeria.style.display = galeria.dataset.categoria === categoriaSeleccionada ? "grid" : "none";
-          });
-          inicializarBotones();
-        });
-      });
-
-      document.querySelectorAll('.whatsapp-producto').forEach(boton => {
-        boton.addEventListener('click', function (e) {
-          e.preventDefault();
-          const producto = this.closest('.producto');
-          const nombre = producto.querySelector('p').innerText;
-          const imagen = producto.querySelector('img').src;
-          const mensaje = `¡Hola! Estoy interesada en este producto:\n*${nombre}*\nImagen: ${imagen}`;
-          const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-          window.open(url, '_blank');
-        });
-      });
-
-      document.querySelector('#carrito .vaciar').addEventListener('click', () => {
-        carrito.length = 0;
-        actualizarCarrito();
-      });
-
-      document.querySelectorAll('.producto img').forEach(img => {
-        img.addEventListener('click', () => {
-          const producto = img.closest('.producto');
-          const nombre = producto.querySelector('p').innerText;
-          const imagen = img.src;
-          alert(`Detalles del producto:\n${nombre}`);
-        });
-      });
-
-      inicializarBotones();
     });
+
+    asignarEventosAgregar();
   </script>
 </body>
 </html>
