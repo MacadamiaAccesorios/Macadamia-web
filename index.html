@@ -5,6 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Macadamia Accesorios</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Estilo para el modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+    }
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 500px;
+      border-radius: 8px;
+    }
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover,
+    .close:focus {
+      color: black;
+    }
+    #carrito {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 1em;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 999;
+      width: 250px;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -37,23 +83,23 @@
       <!-- Accesorios -->
       <div class="galeria" data-categoria="accesorios" style="display: none;">
         <div class="producto">
-          <img src="assets/elefande brillante.jpg" alt="Ref:ACC001">
+          <img src="assets/elefande brillante.jpg" alt="Ref:ACC001" class="img-detalle">
           <p>Collar elefante brillante - $35.000</p>
           <a href="#" class="whatsapp-producto">Comprar por WhatsApp</a>
           <button class="add-to-cart" data-producto="Collar elefante brillante - $35.000">🛒</button>
+          <div class="descripcion" style="display:none">Collar con dije de elefante brillante, bañado en oro, cadena ajustable.</div>
         </div>
-        <!-- Más productos aquí -->
       </div>
 
       <!-- Detalles con Chocolate -->
       <div class="galeria" data-categoria="detalles" style="display: none;">
         <div class="producto">
-          <img src="assets/1.jpg" alt="Ref:19171">
+          <img src="assets/1.jpg" alt="Ref:19171" class="img-detalle">
           <p>Con tarjeta personalizada - $65.000</p>
           <a href="#" class="whatsapp-producto">Comprar por WhatsApp</a>
           <button class="add-to-cart" data-producto="Con tarjeta personalizada - $65.000">🛒</button>
+          <div class="descripcion" style="display:none">Caja con chocolates surtidos y tarjeta personalizada para regalo especial.</div>
         </div>
-        <!-- Más productos aquí -->
       </div>
 
     </div>
@@ -66,30 +112,35 @@
     <button class="vaciar">Vaciar carrito</button>
   </div>
 
+  <!-- Modal para detalles del producto -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3 id="modal-titulo"></h3>
+      <img id="modal-img" src="" style="width: 100%; border-radius: 8px;">
+      <p id="modal-descripcion"></p>
+    </div>
+  </div>
+
   <section id="contacto" class="contacto">
     <h2>Contáctanos</h2>
     <p>¡Escríbenos por WhatsApp para pedidos o dudas!</p>
   </section>
 
-  <!-- Botón flotante general de WhatsApp -->
   <a href="https://wa.me/573174715623" class="whatsapp-button" target="_blank">💬</a>
 
   <script>
     // Mostrar categorías
-    const botones = document.querySelectorAll(".categoria-btn");
-    const galerias = document.querySelectorAll(".galeria");
-
-    botones.forEach(boton => {
+    document.querySelectorAll(".categoria-btn").forEach(boton => {
       boton.addEventListener("click", () => {
         const categoriaSeleccionada = boton.dataset.categoria;
-        galerias.forEach(galeria => {
+        document.querySelectorAll(".galeria").forEach(galeria => {
           galeria.style.display = galeria.dataset.categoria === categoriaSeleccionada ? "grid" : "none";
         });
       });
     });
 
     // Enviar producto por WhatsApp
-    const numeroWhatsApp = '573174715623';
     document.querySelectorAll('.whatsapp-producto').forEach(boton => {
       boton.addEventListener('click', function (e) {
         e.preventDefault();
@@ -97,23 +148,20 @@
         const nombre = producto.querySelector('p').innerText;
         const imagen = producto.querySelector('img').src;
         const mensaje = `¡Hola! Estoy interesada en este producto:\n*${nombre}*\nImagen: ${imagen}`;
-        const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+        const url = `https://wa.me/573174715623?text=${encodeURIComponent(mensaje)}`;
         window.open(url, '_blank');
       });
     });
 
     // Carrito de compras
     document.addEventListener('DOMContentLoaded', () => {
-      const botonesAgregar = document.querySelectorAll('.add-to-cart');
+      const carrito = [];
       const listaCarrito = document.querySelector('#carrito ul');
       const botonVaciar = document.querySelector('#carrito .vaciar');
-      const contenedorCarrito = document.getElementById('carrito');
-      const carrito = [];
 
-      botonesAgregar.forEach(boton => {
+      document.querySelectorAll('.add-to-cart').forEach(boton => {
         boton.addEventListener('click', () => {
-          const producto = boton.getAttribute('data-producto');
-          carrito.push(producto);
+          carrito.push(boton.getAttribute('data-producto'));
           actualizarCarrito();
         });
       });
@@ -125,11 +173,6 @@
 
       function actualizarCarrito() {
         listaCarrito.innerHTML = '';
-        if (carrito.length === 0) {
-          contenedorCarrito.style.display = 'none';
-          return;
-        }
-        contenedorCarrito.style.display = 'block';
         carrito.forEach(item => {
           const li = document.createElement('li');
           li.textContent = item;
@@ -137,6 +180,28 @@
         });
       }
     });
+
+    // Modal detalles producto
+    const modal = document.getElementById("modal");
+    const span = document.getElementsByClassName("close")[0];
+    const titulo = document.getElementById("modal-titulo");
+    const imagen = document.getElementById("modal-img");
+    const descripcion = document.getElementById("modal-descripcion");
+
+    document.querySelectorAll(".img-detalle").forEach(img => {
+      img.addEventListener("click", () => {
+        const producto = img.closest(".producto");
+        titulo.textContent = producto.querySelector("p").textContent;
+        imagen.src = img.src;
+        descripcion.textContent = producto.querySelector(".descripcion").textContent;
+        modal.style.display = "block";
+      });
+    });
+
+    span.onclick = () => modal.style.display = "none";
+    window.onclick = (event) => {
+      if (event.target === modal) modal.style.display = "none";
+    };
   </script>
 </body>
 </html>
