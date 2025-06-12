@@ -6,8 +6,14 @@
   <title>Macadamia Accesorios</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    header img.logo {
-      height: 100px;
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+    .logo {
+      height: 120px;
       width: auto;
       cursor: pointer;
     }
@@ -26,34 +32,41 @@
     .modal-content {
       background: white;
       padding: 2em;
-      border-radius: 12px;
+      border-radius: 10px;
       text-align: center;
       max-width: 90%;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
       position: relative;
     }
-    .modal-content .close-btn {
+    .modal-close {
       position: absolute;
       top: 10px;
-      right: 15px;
-      background: transparent;
+      right: 10px;
+      background: #c00;
+      color: white;
       border: none;
-      font-size: 20px;
+      padding: 0.4em 0.8em;
+      border-radius: 5px;
       cursor: pointer;
     }
-    #adminPanel {
-      display: none;
-      margin: 2em auto;
+    #carrito {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      background: #fff;
+      border: 1px solid #ccc;
       padding: 1em;
-      max-width: 400px;
-      background: #f9f9f9;
+      display: none;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
     }
-    #adminPanel input, #adminPanel textarea, #adminPanel select {
-      width: 100%;
-      margin: 0.5em 0;
-      padding: 0.5em;
+    .admin-panel {
+      display: none;
+      padding: 1em;
+      background: #f4f4f4;
+      border: 1px solid #ccc;
+      margin: 1em;
     }
   </style>
 </head>
@@ -69,77 +82,168 @@
     </nav>
   </header>
 
+  <section id="inicio" class="hero">
+    <h1>Bienvenidos a Macadamia Accesorios</h1>
+    <p>Joyas y detalles que brillan contigo.</p>
+    <div class="categorias">
+      <button class="categoria-btn" data-categoria="accesorios">Accesorios</button>
+      <button class="categoria-btn" data-categoria="detalles">Detalles con Chocolate</button>
+      <button class="categoria-btn" data-categoria="ramos">Ramos Bouquet</button>
+      <button class="categoria-btn" data-categoria="cuadros">Cuadros Personalizados</button>
+      <button class="categoria-btn" data-categoria="juguetes">Juguetes para Adultos</button>
+    </div>
+  </section>
+
+  <section id="catalogo" class="catalogo">
+    <div class="contenedor">
+      <h2>Catálogo de Productos</h2>
+      <div id="productosContainer" class="galeria"></div>
+    </div>
+  </section>
+
+  <div id="carrito">
+    <h3>🛒 Tu carrito</h3>
+    <ul></ul>
+    <button class="vaciar">Vaciar carrito</button>
+  </div>
+
+  <section id="contacto" class="contacto">
+    <h2>Contáctanos</h2>
+    <p>WhatsApp: 3174715623 / 3182142910</p>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/macadamiaaccesories?igsh=MXJlN200d2Z2Zzl0bw==" target="_blank">
+        <img src="assets/icons8-instagram-100.png" alt="Instagram" height="32" />
+      </a>
+      <a href="https://www.facebook.com/share/1BTVsacamg/" target="_blank">
+        <img src="assets/icons8-facebook-f-100.png" alt="Facebook" height="32" />
+      </a>
+      <a href="https://tiktok.com/@accesorios_popayan" target="_blank">
+        <img src="assets/icons8-tik-tok-64.png" alt="TikTok" height="32" />
+      </a>
+      <a href="https://wa.me/573174715623" target="_blank">
+        <img src="assets/icons8-whatsapp-business-64.png" alt="WhatsApp" height="32" />
+      </a>
+    </div>
+  </section>
+
   <div id="modal" class="modal">
     <div class="modal-content">
-      <button class="close-btn" onclick="document.getElementById('modal').style.display='none'">&times;</button>
-      <img src="" id="modal-img" alt="Producto">
+      <button class="modal-close">X</button>
+      <img src="" alt="Producto" id="modal-img">
       <p id="modal-info"></p>
     </div>
   </div>
 
-  <div id="adminPanel">
-    <h2>Agregar Producto</h2>
-    <input type="text" id="nombre" placeholder="Nombre del producto" />
-    <input type="text" id="referencia" placeholder="Referencia" />
-    <input type="text" id="precio" placeholder="Precio" />
-    <textarea id="descripcion" placeholder="Descripción"></textarea>
-    <select id="categoria">
-      <option value="accesorios">Accesorios</option>
-      <option value="detalles">Detalles con Chocolate</option>
-      <option value="ramos">Ramos Bouquet</option>
-      <option value="cuadros">Cuadros Personalizados</option>
-      <option value="juguetes">Juguetes para Adultos</option>
-    </select>
-    <input type="file" id="imagen" accept="image/*" />
-    <button onclick="agregarProducto()">Agregar Producto</button>
+  <div class="admin-panel" id="adminPanel">
+    <h3>Agregar Producto</h3>
+    <input type="text" id="nombre" placeholder="Nombre" required />
+    <input type="text" id="referencia" placeholder="Referencia" required />
+    <input type="text" id="descripcion" placeholder="Descripción" required />
+    <input type="number" id="precio" placeholder="Precio" required />
+    <input type="text" id="categoria" placeholder="Categoría" required />
+    <input type="file" id="imagen" accept="image/*" required />
+    <button onclick="agregarProducto()">Subir Producto</button>
   </div>
 
   <script>
-    const logo = document.getElementById('logo');
-    logo.addEventListener('click', () => {
-      const pass = prompt('Ingrese la contraseña');
-      if (pass === 'V1e2n3u4S') {
+    document.getElementById('logo').addEventListener('click', () => {
+      const clave = prompt('Ingresa la contraseña');
+      if (clave === 'V1e2n3u4S') {
         document.getElementById('adminPanel').style.display = 'block';
-      } else {
-        alert('Contraseña incorrecta');
+        window.scrollTo(0, document.body.scrollHeight);
       }
     });
 
-    function agregarProducto() {
-      const nombre = document.getElementById('nombre').value;
-      const referencia = document.getElementById('referencia').value;
-      const precio = document.getElementById('precio').value;
-      const descripcion = document.getElementById('descripcion').value;
-      const categoria = document.getElementById('categoria').value;
-      const imagen = document.getElementById('imagen').files[0];
+    document.querySelector('.modal-close').addEventListener('click', () => {
+      document.getElementById('modal').style.display = 'none';
+    });
 
-      if (!imagen || !nombre || !referencia || !precio) {
-        alert('Por favor llena todos los campos y sube una imagen.');
-        return;
-      }
+    document.querySelector('#carrito .vaciar').addEventListener('click', () => {
+      carrito.length = 0;
+      actualizarCarrito();
+    });
+  </script>
 
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        const producto = {
-          nombre,
-          referencia,
-          precio,
-          descripcion,
-          categoria,
-          imagen: e.target.result
-        };
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+    import { getFirestore, collection, addDoc, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+    import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-storage.js";
 
-        fetch('https://api.npoint.io/fake-endpoint', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(producto)
-        }).then(() => {
-          alert('Producto agregado. Recarga la página para verlo.');
-          location.reload();
-        }).catch(() => alert('Error al guardar el producto. (Simulación)'));
-      };
-      reader.readAsDataURL(imagen);
+    const firebaseConfig = {
+      apiKey: "AIzaSyCT5GJqveXKY03aGp03rHACvE1wY4oUdSE",
+      authDomain: "macadamiaccesorios-12887.firebaseapp.com",
+      projectId: "macadamiaccesorios-12887",
+      storageBucket: "macadamiaccesorios-12887.appspot.com",
+      messagingSenderId: "465401105433",
+      appId: "1:465401105433:web:d6bc37b589e4810816ae88"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const storage = getStorage(app);
+
+    const productosContainer = document.getElementById('productosContainer');
+
+    function renderizarProductos(data) {
+      productosContainer.innerHTML = '';
+      data.forEach(doc => {
+        const p = doc.data();
+        const card = document.createElement('div');
+        card.className = 'producto';
+        card.setAttribute('data-categoria', p.categoria);
+        card.innerHTML = `
+          <img src="${p.imagen}" alt="${p.referencia}">
+          <p>Ref: ${p.referencia}<br>${p.nombre} - $${p.precio}</p>
+          <p>${p.descripcion}</p>
+          <a href="https://wa.me/573174715623?text=${encodeURIComponent(`Hola, quiero este producto: ${p.nombre} Ref:${p.referencia}`)}" target="_blank">Comprar por WhatsApp</a>
+          <button class="add-to-cart" data-producto="${p.nombre} - $${p.precio}">🛒</button>
+        `;
+        productosContainer.appendChild(card);
+
+        card.querySelector('img').addEventListener('click', () => {
+          document.getElementById('modal-img').src = p.imagen;
+          document.getElementById('modal-info').textContent = `${p.nombre} - ${p.descripcion}`;
+          document.getElementById('modal').style.display = 'flex';
+        });
+      });
     }
+
+    onSnapshot(collection(db, "productos"), snapshot => {
+      renderizarProductos(snapshot.docs);
+    });
+
+    window.agregarProducto = async function () {
+      const nombre = document.getElementById('nombre').value;
+      const refProd = document.getElementById('referencia').value;
+      const desc = document.getElementById('descripcion').value;
+      const precio = document.getElementById('precio').value;
+      const categoria = document.getElementById('categoria').value;
+      const file = document.getElementById('imagen').files[0];
+      if (!file) return alert('Seleccione una imagen');
+
+      const fileRef = ref(storage, `productos/${Date.now()}_${file.name}`);
+      await uploadBytes(fileRef, file);
+      const imageUrl = await getDownloadURL(fileRef);
+
+      await addDoc(collection(db, "productos"), {
+        nombre,
+        referencia: refProd,
+        descripcion: desc,
+        precio,
+        categoria,
+        imagen: imageUrl,
+        createdAt: serverTimestamp()
+      });
+
+      alert('Producto agregado con éxito');
+      document.getElementById('nombre').value = '';
+      document.getElementById('referencia').value = '';
+      document.getElementById('descripcion').value = '';
+      document.getElementById('precio').value = '';
+      document.getElementById('categoria').value = '';
+      document.getElementById('imagen').value = '';
+      document.getElementById('adminPanel').style.display = 'none';
+    };
   </script>
 </body>
 </html>
