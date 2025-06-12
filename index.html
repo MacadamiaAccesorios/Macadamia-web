@@ -2,21 +2,14 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Macadamia Accesorios</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    #carrito {
-      position: fixed;
-      top: 80px;
-      right: 20px;
-      background: #fff;
-      border: 1px solid #ccc;
-      padding: 1em;
-      display: none;
-      z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      border-radius: 8px;
+    header img.logo {
+      height: 100px;
+      width: auto;
+      cursor: pointer;
     }
     .modal {
       position: fixed;
@@ -24,7 +17,7 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0,0,0,0.85);
+      background: rgba(0, 0, 0, 0.85);
       display: none;
       justify-content: center;
       align-items: center;
@@ -33,44 +26,36 @@
     .modal-content {
       background: white;
       padding: 2em;
-      border-radius: 10px;
+      border-radius: 12px;
       text-align: center;
       max-width: 90%;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
       position: relative;
     }
-    .modal-content img {
-      max-width: 100%;
-      height: auto;
-      margin-bottom: 1em;
-    }
-    .modal-close {
-      background: #c00;
-      color: white;
+    .modal-content .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: transparent;
       border: none;
-      padding: 0.5em 1em;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-    .social-icons a {
-      margin: 0 10px;
-      font-size: 1.5em;
-    }
-    .logo {
-      width: 180px;
+      font-size: 20px;
       cursor: pointer;
     }
-    #admin-panel {
+    #adminPanel {
       display: none;
-      margin-top: 2em;
+      margin: 2em auto;
       padding: 1em;
-      border: 1px solid #ccc;
-      border-radius: 8px;
+      max-width: 400px;
       background: #f9f9f9;
-      max-width: 600px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    #adminPanel input, #adminPanel textarea, #adminPanel select {
+      width: 100%;
+      margin: 0.5em 0;
+      padding: 0.5em;
     }
   </style>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
@@ -84,117 +69,77 @@
     </nav>
   </header>
 
-  <section id="inicio" class="hero">
-    <h1>Bienvenidos a Macadamia Accesorios</h1>
-    <p>Joyas y detalles que brillan contigo.</p>
-    <div class="categorias">
-      <button class="categoria-btn" data-categoria="accesorios">Accesorios</button>
-      <button class="categoria-btn" data-categoria="detalles">Detalles con Chocolate</button>
-      <button class="categoria-btn" data-categoria="ramos">Ramos Bouquet</button>
-      <button class="categoria-btn" data-categoria="cuadros">Cuadros Personalizados</button>
-      <button class="categoria-btn" data-categoria="juguetes">Juguetes para Adultos</button>
-    </div>
-  </section>
-
-  <section id="catalogo" class="catalogo">
-    <div class="contenedor">
-      <h2>Catálogo de Productos</h2>
-      <div id="productos"></div>
-    </div>
-  </section>
-
-  <div id="carrito">
-    <h3>🛒 Tu carrito</h3>
-    <ul></ul>
-    <button class="vaciar">Vaciar carrito</button>
-  </div>
-
-  <section id="contacto" class="contacto">
-    <h2>Contáctanos</h2>
-    <p>WhatsApp: 3174715623 / 3182142910</p>
-    <div class="social-icons">
-      <a href="https://www.instagram.com/macadamiaaccesories?igsh=MXJlN200d2Z2Zzl0bw==" target="_blank"><img src="assets/icons8-instagram-100.png" width="30"></a>
-      <a href="https://www.facebook.com/share/1BTVsacamg/" target="_blank"><img src="assets/icons8-facebook-f-100.png" width="30"></a>
-      <a href="https://tiktok.com/@accesorios_popayan" target="_blank"><img src="assets/icons8-tik-tok-64.png" width="30"></a>
-      <a href="https://wa.me/573174715623" target="_blank"><img src="assets/icons8-whatsapp-business-64.png" width="30"></a>
-    </div>
-  </section>
-
-  <a href="https://wa.me/573174715623" class="whatsapp-button" target="_blank">💬</a>
-
   <div id="modal" class="modal">
     <div class="modal-content">
-      <button class="modal-close" style="position:absolute; top:10px; right:10px">X</button>
-      <img src="" alt="Producto" id="modal-img">
+      <button class="close-btn" onclick="document.getElementById('modal').style.display='none'">&times;</button>
+      <img src="" id="modal-img" alt="Producto">
       <p id="modal-info"></p>
     </div>
   </div>
 
-  <div id="admin-panel">
-    <h3>Agregar producto</h3>
-    <form id="form-producto">
-      <input type="text" placeholder="Nombre" id="nombre" required><br>
-      <input type="text" placeholder="Referencia" id="ref" required><br>
-      <input type="text" placeholder="Precio" id="precio" required><br>
-      <select id="categoria" required>
-        <option value="accesorios">Accesorios</option>
-        <option value="detalles">Detalles con Chocolate</option>
-        <option value="ramos">Ramos Bouquet</option>
-        <option value="cuadros">Cuadros Personalizados</option>
-        <option value="juguetes">Juguetes para Adultos</option>
-      </select><br>
-      <input type="file" id="imagen" accept="image/*" required><br>
-      <button type="submit">Agregar</button>
-    </form>
+  <div id="adminPanel">
+    <h2>Agregar Producto</h2>
+    <input type="text" id="nombre" placeholder="Nombre del producto" />
+    <input type="text" id="referencia" placeholder="Referencia" />
+    <input type="text" id="precio" placeholder="Precio" />
+    <textarea id="descripcion" placeholder="Descripción"></textarea>
+    <select id="categoria">
+      <option value="accesorios">Accesorios</option>
+      <option value="detalles">Detalles con Chocolate</option>
+      <option value="ramos">Ramos Bouquet</option>
+      <option value="cuadros">Cuadros Personalizados</option>
+      <option value="juguetes">Juguetes para Adultos</option>
+    </select>
+    <input type="file" id="imagen" accept="image/*" />
+    <button onclick="agregarProducto()">Agregar Producto</button>
   </div>
 
   <script>
-    const productos = JSON.parse(localStorage.getItem('productos')) || [];
-    const numeroWhatsApp = '573174715623';
-    const contenedor = document.getElementById('productos');
-
-    function renderizarProductos() {
-      contenedor.innerHTML = '';
-      productos.forEach(({ nombre, ref, precio, categoria, imagen }, i) => {
-        const div = document.createElement('div');
-        div.className = 'producto';
-        div.setAttribute('data-categoria', categoria);
-        div.innerHTML = `
-          <img src="${imagen}" alt="${ref}"/>
-          <p>Ref: ${ref}<br>${nombre} - ${precio}</p>
-          <a href="#" class="whatsapp-producto">Comprar por WhatsApp</a>
-          <button class="add-to-cart" data-producto="${nombre} - ${precio}">🛒</button>
-        `;
-        contenedor.appendChild(div);
-      });
-    }
-
-    renderizarProductos();
-
-    document.getElementById('form-producto').addEventListener('submit', e => {
-      e.preventDefault();
-      const nombre = document.getElementById('nombre').value;
-      const ref = document.getElementById('ref').value;
-      const precio = document.getElementById('precio').value;
-      const categoria = document.getElementById('categoria').value;
-      const file = document.getElementById('imagen').files[0];
-      const reader = new FileReader();
-      reader.onload = () => {
-        productos.push({ nombre, ref, precio, categoria, imagen: reader.result });
-        localStorage.setItem('productos', JSON.stringify(productos));
-        renderizarProductos();
-        document.getElementById('form-producto').reset();
-      };
-      if (file) reader.readAsDataURL(file);
-    });
-
-    document.getElementById('logo').addEventListener('click', () => {
+    const logo = document.getElementById('logo');
+    logo.addEventListener('click', () => {
       const pass = prompt('Ingrese la contraseña');
       if (pass === 'V1e2n3u4S') {
-        document.getElementById('admin-panel').style.display = 'block';
-        window.scrollTo(0, document.body.scrollHeight);
+        document.getElementById('adminPanel').style.display = 'block';
+      } else {
+        alert('Contraseña incorrecta');
       }
     });
+
+    function agregarProducto() {
+      const nombre = document.getElementById('nombre').value;
+      const referencia = document.getElementById('referencia').value;
+      const precio = document.getElementById('precio').value;
+      const descripcion = document.getElementById('descripcion').value;
+      const categoria = document.getElementById('categoria').value;
+      const imagen = document.getElementById('imagen').files[0];
+
+      if (!imagen || !nombre || !referencia || !precio) {
+        alert('Por favor llena todos los campos y sube una imagen.');
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const producto = {
+          nombre,
+          referencia,
+          precio,
+          descripcion,
+          categoria,
+          imagen: e.target.result
+        };
+
+        fetch('https://api.npoint.io/fake-endpoint', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(producto)
+        }).then(() => {
+          alert('Producto agregado. Recarga la página para verlo.');
+          location.reload();
+        }).catch(() => alert('Error al guardar el producto. (Simulación)'));
+      };
+      reader.readAsDataURL(imagen);
+    }
   </script>
 </body>
 </html>
