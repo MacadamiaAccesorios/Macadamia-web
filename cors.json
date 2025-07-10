@@ -1,0 +1,16 @@
+[
+  {
+    "origin": [
+      "https://macadamiaccesorios-12887.web.app",
+      "https://macadamiaccesorios.github.io"
+    ],
+    "method": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    "maxAgeSeconds": 3600,
+    "responseHeader": [
+      "Content-Type",
+      "Authorization",
+      "x-goog-meta-custom",
+      "Access-Control-Allow-Origin"
+    ]
+  }
+]

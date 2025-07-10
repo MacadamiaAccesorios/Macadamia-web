@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Macadamia Accesorios</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background-color: #fff;
+      flex-wrap: wrap;
+    }
+    .logo {
+      height: 100px;
+      cursor: pointer;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      padding: 0;
+      margin: 0;
+      flex-wrap: wrap;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    .hero {
+      text-align: center;
+      padding: 2em 1em;
+    }
+    .categorias button {
+      margin: 0.3em;
+      padding: 0.5em 1em;
+      border: none;
+      background-color: #ffc107;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1em;
+      padding: 1em;
+    }
+    .producto img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 1em;
+    }
+    .admin-panel input, .admin-panel select, .admin-panel button {
+      display: block;
+      margin: 0.5em auto;
+      padding: 0.5em;
+      width: 90%;
+      max-width: 400px;
+    }
+    .modal, #carrito {
+      z-index: 2000;
+    }
+    @media (max-width: 600px) {
+      header, nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+      .logo {
+        height: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="assets/LOGO TRANSPARENTE.png" alt="Macadamia Logo" class="logo" id="logo" />
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="inicio" class="hero">
+    <h1>Bienvenidos a Macadamia Accesorios</h1>
+    <p>Joyas y detalles que brillan contigo.</p>
+    <div class="categorias">
+      <button class="categoria-btn" data-categoria="accesorios">Accesorios</button>
+      <button class="categoria-btn" data-categoria="detalles">Detalles con Chocolate</button>
+      <button class="categoria-btn" data-categoria="ramos">Ramos Bouquet</button>
+      <button class="categoria-btn" data-categoria="cuadros">Cuadros Personalizados</button>
+      <button class="categoria-btn" data-categoria="juguetes">Juguetes para Adultos</button>
+    </div>
+  </section>
+
+  <section id="catalogo">
+    <h2 style="text-align:center">Catálogo de Productos</h2>
+    <div id="productosContainer" class="galeria"></div>
+  </section>
+
+  <section id="contacto">
+    <h2 style="text-align:center">Contáctanos</h2>
+    <p style="text-align:center">WhatsApp: 3174715623 / 3182142910</p>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/macadamiaaccesories" target="_blank">
+        <img src="assets/icons8-instagram-100.png" alt="Instagram" height="32">
+      </a>
+      <a href="https://www.facebook.com/share/1BTVsacamg/" target="_blank">
+        <img src="assets/icons8-facebook-f-100.png" alt="Facebook" height="32">
+      </a>
+      <a href="https://tiktok.com/@accesorios_popayan" target="_blank">
+        <img src="assets/icons8-tik-tok-64.png" alt="TikTok" height="32">
+      </a>
+      <a href="https://wa.me/573174715623" target="_blank">
+        <img src="assets/icons8-whatsapp-business-64.png" alt="WhatsApp" height="32">
+      </a>
+    </div>
+  </section>
+
+  <div class="admin-panel" id="adminPanel" style="display: none;">
+    <h3 style="text-align:center">Agregar Producto</h3>
+    <form id="formularioAdmin">
+      <input type="text" id="nombre" placeholder="Nombre" required />
+      <input type="text" id="referencia" placeholder="Referencia" required />
+      <input type="text" id="descripcion" placeholder="Descripción" required />
+      <input type="number" id="precio" placeholder="Precio" required />
+      <select id="categoria" required>
+        <option value="">Seleccione Categoría</option>
+        <option value="accesorios">Accesorios</option>
+        <option value="detalles">Detalles con Chocolate</option>
+        <option value="ramos">Ramos Bouquet</option>
+        <option value="cuadros">Cuadros Personalizados</option>
+        <option value="juguetes">Juguetes para Adultos</option>
+      </select>
+      <input type="file" id="imagen" accept="image/*" required />
+      <button type="submit">Subir Producto</button>
+    </form>
+  </div>
+
+  <div id="modal" class="modal" style="display:none">
+    <div class="modal-content">
+      <button class="modal-close">X</button>
+      <img src="" id="modal-img" alt="Producto" style="max-width:100%">
+      <p id="modal-info"></p>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+    import { getFirestore, collection, addDoc, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+    import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-storage.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCT5GJqveXKY03aGp03rHACvE1wY4oUdSE",
+      authDomain: "macadamiaccesorios-12887.firebaseapp.com",
+      projectId: "macadamiaccesorios-12887",
+      storageBucket: "macadamiaccesorios-12887.appspot.com",
+      messagingSenderId: "465401105433",
+      appId: "1:465401105433:web:d6bc37b589e4810816ae88"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const storage = getStorage(app);
+
+    const productosContainer = document.getElementById("productosContainer");
+
+    function renderizarProductos(data) {
+      productosContainer.innerHTML = "";
+      data.forEach(doc => {
+        const p = doc.data();
+        const card = document.createElement("div");
+        card.className = "producto";
+        card.innerHTML = `
+          <img src="${p.imagen}" alt="${p.referencia}" />
+          <p><strong>${p.nombre}</strong> - $${p.precio}<br>Ref: ${p.referencia}</p>
+          <p>${p.descripcion}</p>
+          <a href="https://wa.me/573174715623?text=${encodeURIComponent(`Hola, quiero este producto: ${p.nombre} Ref:${p.referencia}`)}" target="_blank">Comprar por WhatsApp</a>
+        `;
+        card.querySelector("img").onclick = () => {
+          document.getElementById("modal-img").src = p.imagen;
+          document.getElementById("modal-info").textContent = `${p.nombre} - ${p.descripcion}`;
+          document.getElementById("modal").style.display = "flex";
+        };
+        productosContainer.appendChild(card);
+      });
+    }
+
+    onSnapshot(collection(db, "productos"), snapshot => {
+      renderizarProductos(snapshot.docs);
+    });
+
+    document.getElementById("formularioAdmin").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      try {
+        const nombre = document.getElementById("nombre").value;
+        const refProd = document.getElementById("referencia").value;
+        const desc = document.getElementById("descripcion").value;
+        const precio = document.getElementById("precio").value;
+        const categoria = document.getElementById("categoria").value;
+        const file = document.getElementById("imagen").files[0];
+        if (!file) return alert("Seleccione una imagen");
+
+        const fileRef = ref(storage, `productos/${Date.now()}_${file.name}`);
+        await uploadBytes(fileRef, file);
+        const imageUrl = await getDownloadURL(fileRef);
+
+        await addDoc(collection(db, "productos"), {
+          nombre,
+          referencia: refProd,
+          descripcion: desc,
+          precio,
+          categoria,
+          imagen: imageUrl,
+          createdAt: serverTimestamp()
+        });
+
+        alert("Producto agregado con éxito");
+        e.target.reset();
+        document.getElementById("adminPanel").style.display = "none";
+      } catch (error) {
+        console.error("Error al subir producto:", error);
+        alert("Error al subir el producto. Revisa la consola para más detalles.");
+      }
+    });
+
+    document.getElementById("logo").onclick = () => {
+      const clave = prompt("Ingresa la contraseña");
+      if (clave === "V1e2n3u4S") {
+        document.getElementById("adminPanel").style.display = "block";
+        window.scrollTo(0, document.body.scrollHeight);
+      }
+    };
+
+    document.querySelector(".modal-close").onclick = () => {
+      document.getElementById("modal").style.display = "none";
+    };
+  </script>
+</body>
+</html>

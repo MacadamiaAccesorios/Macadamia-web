@@ -1,0 +1,76 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+}
+.logo {
+    height: 60px;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+.hero {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f8f8f8;
+}
+.catalogo .categorias {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+}
+.categoria-btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: #ff9a9e;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+.producto {
+    text-align: center;
+}
+.producto img {
+    width: 100%;
+    border-radius: 10px;
+}
+.btn-wsp {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 8px 10px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+}
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 30px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50%;
+    padding: 10px 15px;
+    text-decoration: none;
+}
